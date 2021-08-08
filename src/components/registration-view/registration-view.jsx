@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [email, setemail] = useState('');
+  const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
   const handleSubmit = (e) => {
@@ -24,11 +24,11 @@ export function RegistrationView(props) {
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
       <label>
-        email:
+        Email:
         <input type="email" value={email} onChange={e => setemail(e.target.value)} />
       </label>
       <label>
-        birthday:
+        Birthday:
         <input type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
       </label>
       <button type="submit" onClick={handleSubmit}>Submit</button>
