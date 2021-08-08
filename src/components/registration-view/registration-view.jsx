@@ -9,10 +9,10 @@ export function RegistrationView(props) {
 
   const handleSubmit = () => {
     e.preventDefault();
-    console.log(username, password);
+    console.log(username, password, email, birthday);
     /* Send a request to the server for authentication */
     /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+    props.onRegister(register);
   };
 
   return (
@@ -38,12 +38,12 @@ export function RegistrationView(props) {
   );
 }
 
-RegistrationView.proptypes = {
+RegistrationView.propTypes = {
   register: PropTypes.shape({
     Username: PropTypes.string.isRequired,
     Password: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.string.isRequired,
+    Birthday: PropTypes.date
   }),
-  onRegistration: PropTypes.func.isRequired,
+  onRegister: PropTypes.func.isRequired,
 };
