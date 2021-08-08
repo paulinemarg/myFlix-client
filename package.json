@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/paulinemarg/myFlix-client#readme",
   "dependencies": {
+    "@parcel/transformer-sass": "^2.0.0-alpha.3",
     "axios": "^0.21.1",
     "prop": "^0.1.0",
     "prop-types": "^15.7.2",
