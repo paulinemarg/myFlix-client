@@ -46,6 +46,10 @@ class MainView extends React.Component {
       register,
     });
   }
+  
+  goToLogin() {
+  this.setState({ register: true });
+  }
 
   onLoggedIn(user) {
     this.setState({
@@ -54,9 +58,9 @@ class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, selectedMovie, user, register } = this.state;
 
-    if (!user) return <RegistrationView onRegister={register => this.onRegister(register)} />;
+    if (!register) return <RegistrationView onRegister={register => this.onRegister(register)} goToLogin={() => this.goToLogin()} />
 
     if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
