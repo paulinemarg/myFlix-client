@@ -13,7 +13,6 @@ class MainView extends React.Component {
     this.state = {
       movies: [],
       user: null,
-      register: null,
     };
   }
 
