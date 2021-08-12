@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Form, Button } from 'react-bootstrap';
+
+import './registration-view.scss';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -14,25 +17,32 @@ export function RegistrationView(props) {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label>
-      <label>
-        Email:
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-      </label>
-      <label>
-        Birthday:
-        <input type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
-      </label>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <Form className="Signin">
+      <Form.Group className="mb-3" controlId="formBasicUsername">
+        <Form.Label>Username</Form.Label>
+        <Form.Control placeholder="Enter Username" type="text" value={username} onChange={e => setUsername(e.target.value)} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control placeholder="Enter email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+        <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control placeholder="Enter Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicBirthday">
+        <Form.Label>Date of Birth</Form.Label>
+        <Form.Control placeholder="YYYY-MM-DD" type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
+        <Form.Text className="text-muted">We'll never share your Birthday with anyone else</Form.Text>
+      </Form.Group>
+      <Button className="signinBtn" variant="dark" type="submit" onClick={handleSubmit}>Sign in</Button>
+      <br></br>
+      <p>
+        Already have an account?
+      </p>
+      <Button className="loginBtn" variant="light" type="submit" onClick={props.goToLogin}>Log in</Button>
+    </Form>
   );
 }
 
