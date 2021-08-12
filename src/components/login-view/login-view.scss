@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+.Login {
+  display: block;
+  text-align: center;
+  width: 400px;
+  margin: auto;
+  margin-top: 15%;
+  padding: 1.5%;
+  background-color: lightgray;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+
+.loginBtn {
+  width: 100px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
