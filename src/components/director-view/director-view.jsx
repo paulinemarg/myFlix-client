@@ -9,22 +9,26 @@ export class DirectorView extends React.Component {
     const { director } = this.props;
     return (
       <Container className="director-container mt-5">
-        <Row className="director-view">
-          <span className="value">{director.Name}</span>
-        </Row>
-        <Row className="director-bio">
-          <span className="value">{director.Bio}</span>
-        </Row>
-        <Row className="director-birthyear">
-          <span className="value">{director.Birth}</span>
-        </Row>
-        <Row className="director-filmography">
-          <span className="value">{director.Filmography}</span>
-        </Row>
         <Row className="director-image">
           <Col xs={12}>
             <img className="w-50 d-flex director-img" src={director.Image}></img>
           </Col>
+          <Row className="director-view">
+            <span className="label"></span>
+            <span className="value">{director.Name}</span>
+          </Row>
+          <Row className="director-bio">
+            <span className="label"></span>
+            <span className="value">{director.Bio}</span>
+          </Row>
+          <Row className="director-birthyear">
+            <span className="label">DOB:</span>
+            <span className="value">{director.Birth}</span>
+          </Row>
+          <Row className="director-filmography">
+            <span className="label">Filmography:</span>
+            <span className="value">{director.Filmography}</span>
+          </Row>
         </Row>
       </Container>
     );
