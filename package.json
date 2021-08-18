@@ -2,7 +2,6 @@
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html"
@@ -28,6 +27,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.0.0-alpha.3",
-    "parcel": "^2.0.0-rc.0"
+    "parcel": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.0.0-rc.0"
   }
 }
