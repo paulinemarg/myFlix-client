@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { Row, Col, Form, Button, Card } from 'react-bootstrap';
+import { Row, Col, Form, Button, Card, FloatingLabel, Accordion } from 'react-bootstrap';
 
 import './profile-view.scss'
+import AccordionHeader from 'react-bootstrap/esm/AccordionHeader';
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -48,9 +49,10 @@ export class ProfileView extends React.Component {
 
   // Gets fav
   getUserFavs(token) {
-    axios.get('https://backend-myflix.herokuapp.com/users/', {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    axios.get('https://backend-myflix.herokuapp.com/users/' + localStorage.getItem('user'),
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         this.setState({
           FavoriteMovies: response.data.FavoriteMovies,
@@ -104,7 +106,7 @@ export class ProfileView extends React.Component {
       },
     })
       .then((response) => {
-        alert("Saved!");
+        alert("Saved Changes!");
         this.setState({
           Username: response.data.Username,
           Password: response.data.Password,
@@ -159,54 +161,81 @@ export class ProfileView extends React.Component {
     const { movies } = this.props;
 
     return (
-      <Row className="profile-view">
-        <Card className="profile-card">
-          <h2 className="m-auto">Update Profile</h2>
-          <Card.Body>
-            <Form noValidate validated={validated} className="update-form d-flex" onSubmit={(e) => this.handleUpdate(e, this.Name, this.Username, this.Password, this.Email, this.Birthday)}>
-              <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control placeholder="Username" type="text" onChange={e => this.setUsername(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control placeholder="Password" type="password" onChange={e => this.setPassword(e.target.value)} />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicBirthday">
-                <Form.Label>Date of Birth</Form.Label>
-                <Form.Control placeholder="YYYY-MM-DD" type="birthday" value={birthday} onChange={e => this.setBirthday(e.target.value)} />
-              </Form.Group>
-              <Button className="updateBtn" variant="dark" type="submit" onClick={(e) => this.handleUpdate(e)}>Update</Button>
-              <h3>Delete Your Account</h3>
-              <Card.Body>
-                <Button className="deleteBtn" variant="dark" type="submit" onClick={(e) => this.handleDeleteUser(e)}>Delete</Button>
-              </Card.Body>
-              <Card.Body>
-                {FavoriteMovies.length === 0 && <div className="text-center m-auto">You don't have favorite movies yet!</div>}
-                <div className="favorites-movies ">
-                  {FavoriteMovies.length > 0 &&
-                    movies.map((movie) => {
-                      if (movie._id === FavoriteMovies.find((m) => m._id === movies._id)) {
-                        return (
-                          <CardDeck className="movie-card-deck">
-                            <Card className="favorites-item card-content" style={{ width: '16rem' }} key={movie._id}>
-                              <Card.Img style={{ width: '18rem' }} className="movieCard" variant="top" src={movie.ImagePath} />
-                              <Card.Body>
-                                <Card.Title className="movie-card-title">{movie.Title}</Card.Title>
-                                <Button size='sm' className='profile-button remove-favorite' variant='danger' value={movie._id} onClick={(e) => this.removeFavouriteMovie(e, movie)}>Remove</Button>
-                              </Card.Body>
-                            </Card>
-                          </CardDeck>
-                        );
-                      }
-                    })}
+      <Row className="profile-view d-flex ">
+        <Accordion defaultActiveKey="0" className="custom-accordion">
+          <Accordion.Item style={{ backgroundColor: 'black' }} eventKey="0">
+            <Accordion.Header>
+              <h3 className="text-dark">My Profile</h3>
+            </Accordion.Header>
+            <Accordion.Body className="full-white w-100">
+              <Form noValidate className="w-75 my-auto" validated={validated} onSubmit={(e) =>
+                this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birth
+                )}>
+                <Row>
+                  <Form.Group className="mb-3" controlId="formBasicUsername">
+                    <FloatingLabel controlId="username" label="Username">
+                      <Form.Control type="username" placeholder="Username" onChange={(e) => this.setUsername(e.target.value)} />
+                    </FloatingLabel>
+                  </Form.Group>
+                  <Col>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                      <FloatingLabel controlId="password" label="Password">
+                        <Form.Control type="password" placeholder="Password" onChange={(e) => this.setPassword(e.target.value)} />
+                      </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                      <FloatingLabel controlId="email" label="Email address">
+                        <Form.Control type="email" placeholder="Email address" onChange={(e) => this.setEmail(e.target.value)} />
+                      </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicBirthday">
+                      <FloatingLabel controlId="birthday" label="Birthday">
+                        <Form.Control type="date" onChange={(e) => this.setBirthday(e.target.value)} />{" "}
+                      </FloatingLabel>
+                    </Form.Group>
+                  </Col>
+                </Row>
+                <Card.Body>
+                  <Button className="mx-3 mt-2" variant="outline-light" type="submit">Update</Button>
+                  <Button className="mx-3 mt-2" variant="outline-danger" onClick={(e) => this.handleDeleteUser(e)}>Delete</Button>
+                </Card.Body>
+              </Form>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item style={{ backgroundColor: 'black' }} eventKey="1">
+            <Accordion.Header className="text-light full-black mt-md-5">
+              <h3 className="m-auto black-text">Favorites</h3>
+            </Accordion.Header>
+            <Accordion.Body className="text-center full-black" sm={12} md={6}>
+              {FavoriteMovies.length === 0 && (
+                <div className="text-center text-light m-auto">
+                  You don`t have favorite movies yet!
                 </div>
-              </Card.Body>
-            </Form>
-          </Card.Body>
-        </Card>
-      </Row>
-    )
+              )}
+              <div className="d-flex justify-content-center ">
+                {movies.map((movie) => {
+                  if (
+                    movie._id ===
+                    FavoriteMovies.find((m) => m._id === movies._id)
+                  ) {
+                    return (
+                      <Col className="text-center justify-content-center">
+                        <Row className="text-dark" key={movie._id}>
+                          <Col className="m-auto image-container-profile" sm={12} md={6} lg={5}>
+                            <img className="w-75 m-auto mt-2" key={movie._id} src={movie.ImagePath} />
+                            <Button className="remove-favorite w-50 px-6 m-auto mt-2 custom-remove" variant="danger" value={movie._id} onClick={(e) => this.removeFavouriteMovie(e, movie)}>Remove</Button>
+                          </Col>
+                        </Row>
+                      </Col>
+                    );
+                  }
+                })}
+              </div>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </Row >
+    );
   }
 }
 
