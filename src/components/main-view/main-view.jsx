@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
 
 import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from '../login-view/login-view';
@@ -9,7 +9,8 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
-import { Row, Col, Button } from 'react-bootstrap';
+import { ProfileView } from '../profile-view/profile-view';
+import { Row, Col, Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 
 import "./main-view.scss";
 
@@ -80,10 +81,14 @@ class MainView extends React.Component {
       });
   }
 
-  onRegistration(user) {
+  onRegister(user) {
     this.setState({
       user,
     });
+  }
+
+  goToLogin() {
+    this.setState({ register: true });
   }
 
   onLoggedIn(authData) {
@@ -109,8 +114,24 @@ class MainView extends React.Component {
     const { movies, user, directors, genres } = this.state;
     return (
       <Router>
-        <Button onClick={() => { this.onLoggedOut() }}>Logout</Button>
-        <Row className="main-view justify-content-md-center">
+        <Navbar bg="dark" collapseOnSelect expand="lg" sticky="top" variant="dark">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Link className="custom-link mx-3" to={`/`}>Movies</Link>
+              <Link className="custom-link mx-3" to={`/directors`}>Directors</Link>
+              <Link className="custom-link mx-3" to={`/genres`}>Genres</Link>
+              <Link className="custom-link mx-3" to={`/users/:username`}>Profile</Link>
+            </Nav>
+            <Form className="d-flex">
+              <FormControl type="search" placeholder="Search" className="mr-2" aria-label="Search" />
+              <Button variant="outline-danger">Search</Button>
+            </Form>
+            <Button className="logout-button mx-3" variant="outline-danger" onClick={() => { this.onLoggedOut(); }}>Logout</Button>
+          </Navbar.Collapse>
+        </Navbar>
+        <Row className="main-view justify-content-center">
+          <img src="../public/logo.jpg" width="30" height="30" className="justify-content-center-md-center" />
           <Route exact path="/" render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -122,9 +143,22 @@ class MainView extends React.Component {
             ))
           }} />
           <Route path="/register" render={() => {
-            if (user) return <Redirect to="/" />
+            if (user) return <Redirect to="/" />;
             return <Col>
               <RegistrationView />
+            </Col>
+          }} />
+          <Route exact path="/users/:username" render={({ history }) => {
+            if (!user) return (
+              <LoginView onLoggedIn={(data) => this.onLoggedIn(data)} />
+            );
+            if (movies.length === 0) return;
+            return <ProfileView history={history} movies={movies} />;
+          }}
+          />
+          <Route path="/profile" render={() => {
+            if (!user) return <Col>
+              <ProfileView />
             </Col>
           }} />
           <Route path="/movies/:movieId" render={({ match, history }) => {
@@ -142,18 +176,15 @@ class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <GenreView genre={genres.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
-              <Button classname="mt-4" onClick={() => {
+              <GenreView genre={genres.find(m => m.Name === match.params.name)} onBackClick={() => history.goBack()} />
+              <Button classname="mt-4" variant="dark" onClick={() => {
                 history.goBack();
               }} >Back</Button>
             </Col>
           }} />
           <Route exact path="/genres" render={() => {
-            if (!user) return <Col>
-              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-            </Col>
             return genres.map((m) => (
-              <Col md={12} key={m._id}>
+              <Col md={8} key={m._id}>
                 <GenreView genre={m} />
               </Col>
             ));
@@ -164,19 +195,16 @@ class MainView extends React.Component {
             </Col>
             if (movies.length === 0) return <div className="main-view" />;
             return <Col md={8}>
-              <DirectorView director={directors.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
-              <Button className="mt-4" onClick={() => {
+              <DirectorView director={directors.find(m => m.Name === match.params.name)} onBackClick={() => history.goBack()} />
+              <Button className="mt-4" variant="dark" onClick={() => {
                 history.goBack();
               }} >Back</Button>
             </Col>
           }} />
           <Route exact path="/directors" render={() => {
-            if (!user) return <Col>
-              <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-            </Col>
             return directors.map((m) => (
-              <Col md={12} key={m._id}>
-                <GenreView director={m} />
+              <Col md={12} xl={6} key={m._id}>
+                <DirectorView director={m} />
               </Col>
             ));
           }} />
