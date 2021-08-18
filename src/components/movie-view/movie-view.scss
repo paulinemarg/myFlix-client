@@ -3,13 +3,11 @@
 }
 
 .movie-view {
-  display: block;
   text-align: center;
   width: 90%;
   height: 98vh;
   margin: auto;
   padding: 1.5%;
-  background-color: lightgrey;
   border-radius: 10px;
 }
 
@@ -17,28 +15,24 @@
   margin-top: 1%;
 }
 
-.movie-poster img {
-  height: 800px;
-  float: left;
-}
-
 .movie-title {
   font-size: 50px;
   margin-top: 15%;
 }
 
-.movie-genre,
-.movie-director,
-.movie-actors,
-.movie-releaseYear,
-.movie-rating {
-  font-weight: bold;
+.movie-body {
+  text-align: center;
+  font-size: 22px;
+  margin: auto;
+}
+.movie-poster img {
+  height: 600px;
+  width: 400px;
+  float: left;
+  box-shadow: 0 0 200px rgb(22, 22, 22);
 }
 
-.movie-body {
-  font-size: 22px;
-  width: 60%;
-  margin: auto;
-  margin-left: 40%;
-  padding-top: 200px;
+.link {
+  color: red;
 }
+
