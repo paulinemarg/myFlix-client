@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 import './registration-view.scss';
 
@@ -10,6 +11,8 @@ export function RegistrationView(props) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
+
+  let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,15 +25,21 @@ export function RegistrationView(props) {
       .then(response => {
         const data = response.data;
         console.log(data);
+        alert('Registration successfull! Please Login.');
         window.open('/', '_self');
       })
-      .catch(e => {
+      .catch((e) => {
+        alert("The user is already registered.")
         console.log('error registering the user')
       });
   };
 
+  function handleClick() {
+    history.push("/");
+  }
+
   return (
-    <Form className="Signin">
+    <Form className="Signin justify-content-md-center">
       <Form.Group className="mb-3" controlId="formBasicUsername">
         <Form.Label>Username</Form.Label>
         <Form.Control placeholder="Enter Username" type="text" value={username} onChange={e => setUsername(e.target.value)} />
@@ -38,7 +47,7 @@ export function RegistrationView(props) {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control placeholder="Enter email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
-        <Form.Text className="text-muted">We'll never share your email with anyone else</Form.Text>
+        <Form.Text className="text-white">We'll never share your email with anyone else</Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
@@ -47,14 +56,14 @@ export function RegistrationView(props) {
       <Form.Group className="mb-3" controlId="formBasicBirthday">
         <Form.Label>Date of Birth</Form.Label>
         <Form.Control placeholder="YYYY-MM-DD" type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
-        <Form.Text className="text-muted">We'll never share your Birthday with anyone else</Form.Text>
+        <Form.Text className="text-white">We'll never share your Birthday with anyone else</Form.Text>
       </Form.Group>
-      <Button className="signinBtn" variant="dark" type="submit" onClick={handleSubmit}>Sign in</Button>
+      <Button className="signinBtn" variant="light" type="submit" onClick={handleSubmit}>Register</Button>
       <br></br>
       <p>
         Already have an account?
       </p>
-      <Button className="loginBtn" variant="light" type="submit" onClick={props.goToLogin}>Log in</Button>
+      <Button className="loginBtn" variant="light" type="submit" onClick={handleClick}>Log in</Button>
     </Form>
   );
 }
@@ -66,5 +75,4 @@ RegistrationView.propTypes = {
     Email: PropTypes.string.isRequired,
     Birthday: PropTypes.date
   }),
-  onRegister: PropTypes.func.isRequired,
 };
