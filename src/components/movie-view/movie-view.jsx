@@ -8,53 +8,61 @@ import "./movie-view.scss";
 
 
 export class MovieView extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
 
   render() {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Row className="movie-view">
-        <Col xs={12} md={6} className="movie-poster">
-          <img className="w-75" class="img-fluid" src={movie.ImagePath} thumbnail />
+      <Row className="movie-view mt-5 m-auto">
+        <Col md={12} xs={6} className="movie-poster">
+          <img className="w-100" src={movie.ImagePath} />
         </Col>
-        <Col xs={12} md={6} className="movie-body">
+        <Col md={12} lg={6} className="movie-body justify-content-md-center">
           <div className="movie-title">
             <span className="label"></span>
             <h1 className="value">{movie.Title}</h1>
+          </div>
+          <div className="movie-genre">
+            <span className="label"></span>
+            {movie.Genre.map((Genre) => (
+              <Link key={Genre._id} to={`/genres/${Genre.Name}`}>
+                <Button className="link" variant="link">
+                  <h4>{Genre.Name}</h4>
+                </Button>
+              </Link>
+            ))}
           </div>
           <div className="movie-description">
             <span className="label"></span>
             <span className="value">{movie.Description}</span>
           </div>
-          <div className="movie-genre">
-            <span className="label"></span>
-            <h2 className="value">
-              <Link to={`/genres/${movie.Genre.Name}`}>
-                <Button variant="link">Genre</Button>
+          <div className="movie-director mt-5">
+            <span className="label">Directed by:</span>
+            {movie.Director.map((Director) => (
+              <Link key={Director._id} to={`/directors/${Director.Name}`}>
+                <Button className="link" variant="link">
+                  <h3>{Director.Name}</h3>
+                </Button>
               </Link>
-            </h2>
-          </div>
-          <div className="movie-director">
-            <span className="label"></span>
-            <h2 className="value">
-              <Link to={`/directors/${movie.Director.Name}`}>
-                <Button variant="link">Director</Button>
-              </Link>
-            </h2>
+            ))}
           </div>
           <div className="movie-stars">
-            <span className="label"></span>
-            <h2 className="value">{movie.Stars}</h2>
+            <span className="label">Actors:</span>
+            <span className="value">{movie.Stars}</span>
           </div>
           <div className="movie-releaseYear">
-            <span className="label"> </span>
-            <h3 className="value">{movie.ReleaseYear}</h3>
+            <span className="label">Release Year:</span>
+            <span className="value">{movie.ReleaseYear}</span>
           </div>
           <div className="movie-rating">
-            <span className="label"></span>
-            <h3 className="value">{movie.Rating}</h3>
+            <span className="label">Rating:</span>
+            <span className="value">{movie.Rating}</span>
           </div>
-          <Button className="backbtn" variant="dark" onClick={() => { onBackClick(); }}>Go Back</Button>
+          <Button className="mt-4" variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
         </Col>
       </Row>
     );
@@ -65,11 +73,11 @@ MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
-    Genre: PropTypes.string.isRequired,
-    Director: PropTypes.string.isRequired,
+    Genre: PropTypes.array.isRequired,
+    Director: PropTypes.array.isRequired,
     ImagePath: PropTypes.string.isRequired,
     Stars: PropTypes.string.isRequired,
     ReleaseYear: PropTypes.date,
     Rating: PropTypes.string,
-  }).isRequired,
+  }),
 };
