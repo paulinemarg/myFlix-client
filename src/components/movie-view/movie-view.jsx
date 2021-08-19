@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import { Row, Col, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 import { Link } from "react-router-dom";
 
@@ -11,6 +12,36 @@ export class MovieView extends React.Component {
   constructor() {
     super();
     this.state = {};
+  }
+
+  addFavorite(movie) {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+
+    axios.post(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(() => {
+        alert(`Added to Favorites List`)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  removeFavorite(movie) {
+    const token = localStorage.getItem('token');
+    const username = localStorage.getItem('user');
+
+    axios.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(() => {
+        alert(`Removed from Favorites List`)
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
   }
 
   render() {
@@ -24,7 +55,8 @@ export class MovieView extends React.Component {
         <Col md={12} lg={6} className="movie-body justify-content-md-center">
           <div className="movie-title">
             <span className="label"></span>
-            <h1 className="value">{movie.Title}</h1>
+            <h1 className="value">{movie.Title}<Button variant='outline-light' className="fav-button" value={movie._id} onClick={() => this.addFavorite(movie), this.removeFavorite(movie)}>⭐</Button>
+            </h1>
           </div>
           <div className="movie-genre">
             <span className="label"></span>
@@ -62,7 +94,7 @@ export class MovieView extends React.Component {
             <span className="label">Rating:</span>
             <span className="value">{movie.Rating}</span>
           </div>
-          <Button className="mt-4" variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button className="mt-4" variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
         </Col>
       </Row>
     );
@@ -76,7 +108,7 @@ MovieView.propTypes = {
     Genre: PropTypes.array.isRequired,
     Director: PropTypes.array.isRequired,
     ImagePath: PropTypes.string.isRequired,
-    Stars: PropTypes.string.isRequired,
+    Stars: PropTypes.array.isRequired,
     ReleaseYear: PropTypes.date,
     Rating: PropTypes.string,
   }),
