@@ -5,13 +5,12 @@
 .Login {
   display: block;
   text-align: center;
-  width: 400px;
+  width: 500px;
   margin: auto;
-  margin-top: 15%;
+  margin-top: 10%;
   padding: 1.5%;
   background-color: black;
   color: white;
-  border: 5px solid black;
   border-radius: 10px;
 }
 
@@ -19,4 +18,14 @@
   width: 100px;
   margin-top: 10px;
   border-radius: 10px;
+}
+
+.RegisterBtn {
+  margin-top: 15px;
+  border-radius: 10px;
+  width: 100px;
+}
+
+.account {
+  margin-top: 20px;
 }
