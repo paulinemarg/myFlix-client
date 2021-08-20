@@ -60,9 +60,7 @@ export function RegistrationView(props) {
       </Form.Group>
       <Button className="signinBtn" variant="light" type="submit" onClick={handleSubmit}>Register</Button>
       <br></br>
-      <p>
-        Already have an account?
-      </p>
+      <p className="have-account">Already have an account?</p>
       <Button className="loginBtn" variant="light" type="submit" onClick={handleClick}>Log in</Button>
     </Form>
   );

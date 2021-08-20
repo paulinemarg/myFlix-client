@@ -23,7 +23,26 @@ export class ProfileView extends React.Component {
     const accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
       this.getUser(accessToken);
+      this.getFavorites(accessToken);
     }
+  }
+
+  //Get Fav movies
+  getFavorites(token) {
+    const username = localStorage.getItem('user');
+    const FavoriteMovies = this.state;
+
+    axios.get(`https:backend-myflix.herokuapp.com/users/${username}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        this.setState({
+          FavoriteMovies: response.data.FavoriteMovies,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // Gets user
@@ -36,7 +55,8 @@ export class ProfileView extends React.Component {
         this.setState({
           Username: response.data.Username,
           Password: response.data.Password,
-          Email: response.data.Birthday,
+          Email: response.data.Email,
+          Birthday: response.data.Birthday,
           FavoriteMovies: response.data.FavoriteMovies,
         });
       })
@@ -45,24 +65,8 @@ export class ProfileView extends React.Component {
       });
   }
 
-  removeFavouriteMovie() {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-
-
-    axios.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then(() => {
-        alert('Movie is removed from favorites!');
-        this.componentDidMount();
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }
-
-  handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
+  handleUpdate(e) {
+    e.preventDefault();
     this.setState({
       validated: null,
     });
@@ -76,20 +80,18 @@ export class ProfileView extends React.Component {
       });
       return;
     }
-    e.preventDefault();
 
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
 
     axios.put(`https:backend-myflix.herokuapp.com/users/${username}`, {
-      headers: { Authorization: `Bearer ${token}` },
-      data: {
-        Username: newUsername ? newUsername : this.state.Username,
-        Password: newPassword ? newPassword : this.state.Password,
-        Email: newEmail ? newEmail : this.state.Email,
-        Birthday: newBirthday ? newBirthday : this.state.Birthday,
-      },
-    })
+      Username: this.state.Username,
+      Password: this.state.Password,
+      Email: this.state.Email,
+      Birthday: this.state.Birthday,
+    }, { headers: { Authorization: `Bearer ${token}` } }
+    )
+
       .then((response) => {
         alert("Saved Changes!");
         this.setState({
@@ -141,6 +143,22 @@ export class ProfileView extends React.Component {
       });
   }
 
+  removeFavorite(movie) {
+    const token = localStorage.getItem("token");
+    const username = localStorage.getItem("user");
+
+    axios.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(response => {
+        alert("Removed from favorites!");
+        window.location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   render() {
     const { FavoriteMovies, validated } = this.state;
     const { movies } = this.props;
@@ -153,7 +171,7 @@ export class ProfileView extends React.Component {
               <h3 className="text-dark">My Profile</h3>
             </Accordion.Header>
             <Accordion.Body className="full-white w-100">
-              <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.handleUpdate(e, newUsername, newPassword, newEmail, newBirthday)}>
+              <Form noValidate validated={validated} className="update-form" onSubmit={(e) => this.handleUpdate(e)}>
                 <Row>
                   <Form.Group className="mb-3" controlId="formBasicUsername">
                     <FloatingLabel controlId="username" label="Username">
@@ -201,7 +219,7 @@ export class ProfileView extends React.Component {
                             <Col className="m-auto image-container-profile" sm={12} md={6} lg={5}>
                               <img className="w-75 m-auto mt-2" className="movieCard" src={movie.ImagePath} />
                             </Col>
-                            <Button size='sm' className='profile-button remove-favorite' variant='danger' value={movie._id} onClick={(e) => this.removeFavouriteMovie(e, movie)}>Remove</Button>
+                            <Button className='remove-favorite' variant='danger' value={movie._id} onClick={e => this.removeFavorite(movie)}>Remove</Button>
                           </Row>
                         </Col>
                       );
