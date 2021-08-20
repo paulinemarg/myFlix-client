@@ -126,10 +126,6 @@ class MainView extends React.Component {
               <Link className="custom-link mx-3" to={`/genres`}>Genres</Link>
               <Link className="custom-link mx-3" to={`/users/:username`}>Profile</Link>
             </Nav>
-            <Form className="d-flex">
-              <FormControl type="search" placeholder="Search" className="mr-2" aria-label="Search" />
-              <Button variant="outline-danger">Search</Button>
-            </Form>
             <Button className="logout-button mx-3" variant="outline-danger" onClick={() => { this.onLoggedOut(); }}>Logout</Button>
           </Navbar.Collapse>
         </Navbar>
