@@ -34,7 +34,7 @@ export class MovieView extends React.Component {
 
     return (
       <Row className="movie-view mt-5 m-auto">
-        <Col md={12} xs={6} className="movie-poster">
+        <Col md={12} lg={6} className="movie-poster">
           <img className="w-100" src={movie.ImagePath} />
         </Col>
         <Col md={12} lg={6} className="movie-body justify-content-md-center">
