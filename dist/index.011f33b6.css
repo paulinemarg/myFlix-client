@@ -76,14 +76,9 @@
   margin-top: 1%;
 }
 
-.movie-title {
-  font-size: 50px;
-  margin-top: 15%;
-}
-
 .movie-body {
   text-align: center;
-  font-size: 22px;
+  font-size: 18px;
   margin: auto;
 }
 
@@ -94,21 +89,7 @@
   box-shadow: 0 0 200px #161616;
 }
 
-.link {
-  color: red;
-}
 
-
-* {
-  box-sizing: border-box;
-}
-
-.profile-view {
-  padding: 30px;
-  border: 0.3px solid black;
-  box-shadow: 5px 5px 5px black;
-  border-radius: 15px;
-}
 .custom-link {
   color: white;
 }
@@ -119,6 +100,16 @@
 
 .logo {
   max-width: 50%;
+}
+* {
+  box-sizing: border-box;
+}
+
+.profile-view {
+  padding: 30px;
+  border: 0.3px solid black;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 15px;
 }
 @charset "UTF-8";
 /*!
