@@ -10,8 +10,9 @@ import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
-import { Row, Col, Button, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import { Row, Col, Button, Navbar, Nav, Form, FormControl, FormLabel } from 'react-bootstrap';
 
+import logo from '../../../public/logo.jpg';
 import "./main-view.scss";
 
 class MainView extends React.Component {
@@ -110,8 +111,10 @@ class MainView extends React.Component {
     });
   }
 
+
   render() {
     const { movies, user, directors, genres } = this.state;
+
     return (
       <Router>
         <Navbar bg="dark" collapseOnSelect expand="lg" sticky="top" variant="dark">
@@ -131,7 +134,7 @@ class MainView extends React.Component {
           </Navbar.Collapse>
         </Navbar>
         <Row className="main-view justify-content-center">
-          <img src="../public/logo.jpg" width="30" height="30" className="justify-content-center-md-center" />
+          <img src={logo} width={20} height={200} className="logo justify-content-center-md-center" />
           <Route exact path="/" render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
