@@ -18,7 +18,7 @@ export class MovieView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.post(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+    axios.post(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(() => {
@@ -28,21 +28,6 @@ export class MovieView extends React.Component {
         console.log(error);
       });
   };
-
-  removeFavorite(movie) {
-    const token = localStorage.getItem('token');
-    const username = localStorage.getItem('user');
-
-    axios.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then(() => {
-        alert(`Removed from Favorites List`)
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-  }
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -55,7 +40,7 @@ export class MovieView extends React.Component {
         <Col md={12} lg={6} className="movie-body justify-content-md-center">
           <div className="movie-title">
             <span className="label"></span>
-            <h1 className="value">{movie.Title}<Button variant='outline-light' className="fav-button" value={movie._id} onClick={() => this.addFavorite(movie), this.removeFavorite(movie)}>⭐</Button>
+            <h1 className="value">{movie.Title}<Button variant='outline-light' className="fav-button" value={movie._id} onClick={() => this.addFavorite(movie)}>⭐</Button>
             </h1>
           </div>
           <div className="movie-genre">
