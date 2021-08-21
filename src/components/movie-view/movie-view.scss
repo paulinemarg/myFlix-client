@@ -16,15 +16,24 @@
 }
 
 .movie-body {
-  text-align: center;
+  float: left;
   font-size: 18px;
-  margin: auto;
 }
+
 .movie-poster img {
   height: 600px;
   width: 400px;
-  float: left;
-  box-shadow: 0 0 200px rgb(22, 22, 22);
+  float: right;
+  box-shadow: 0 0 200px rgb(22, 22, 22); 
+} 
+
+.heart {
+  animation: blinker 1s linear infinite;
 }
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 
