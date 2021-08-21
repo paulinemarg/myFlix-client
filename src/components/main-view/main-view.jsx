@@ -10,7 +10,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
-import { Row, Col, Button, Navbar, Nav, Form, FormControl, FormLabel } from 'react-bootstrap';
+import { Row, Col, Button, Navbar, Nav, Form, FormControl, FormLabel, Carousel } from 'react-bootstrap';
 
 import logo from '../../../public/logo.jpg';
 import "./main-view.scss";
@@ -116,8 +116,8 @@ class MainView extends React.Component {
     const { movies, user, directors, genres } = this.state;
 
     return (
-      <Router>
-        <Navbar bg="dark" collapseOnSelect expand="lg" sticky="top" variant="dark">
+      <Router className="mainview-container">
+        <Navbar className="body" bg="dark" collapseOnSelect expand="lg" sticky="top" variant="dark">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -131,6 +131,17 @@ class MainView extends React.Component {
         </Navbar>
         <Row className="main-view justify-content-center">
           <img src={logo} width={20} height={200} className="logo justify-content-center-md-center" />
+          <Carousel className="Carousel-container">
+            <Carousel.Item>
+              <img className="thor" src="https://www.assignmentx.com/wp-content/uploads/2011/03/THOR-12x5-Banner_fin2-online.jpg" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="italian-job" src="https://filmmusiccentral.files.wordpress.com/2019/08/0_0_121368_00h_1280x640.jpg" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="interstellar" src="https://www.joblo.com/wp-content/uploads/2014/10/interstellar-quad-nolan-1.jpg" />
+            </Carousel.Item>
+          </Carousel>
           <Route exact path="/" render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
