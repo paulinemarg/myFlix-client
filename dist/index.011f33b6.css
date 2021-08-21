@@ -90,6 +90,16 @@
 }
 
 
+* {
+  box-sizing: border-box;
+}
+
+.profile-view {
+  padding: 30px;
+  border: 0.3px solid black;
+  box-shadow: 5px 5px 5px black;
+  border-radius: 15px;
+}
 .custom-link {
   color: white;
 }
@@ -100,16 +110,6 @@
 
 .logo {
   max-width: 50%;
-}
-* {
-  box-sizing: border-box;
-}
-
-.profile-view {
-  padding: 30px;
-  border: 0.3px solid black;
-  box-shadow: 5px 5px 5px black;
-  border-radius: 15px;
 }
 @charset "UTF-8";
 /*!
