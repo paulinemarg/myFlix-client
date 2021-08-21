@@ -35,12 +35,16 @@ export class MovieView extends React.Component {
     return (
       <Row className="movie-view mt-5 m-auto">
         <Col md={12} lg={6} className="movie-poster">
-          <img className="w-100" src={movie.ImagePath} />
+          <img className="w-120" src={movie.ImagePath} />
         </Col>
-        <Col md={12} lg={6} className="movie-body justify-content-md-center">
+        <Col md={12} lg={6} className="movie-body">
           <div className="movie-title">
             <span className="label"></span>
-            <h1 className="value">{movie.Title}<Button variant='outline-light' className="fav-button" value={movie._id} onClick={() => this.addFavorite(movie)}>⭐</Button>
+            <h1 className="value">{movie.Title} - {movie.ReleaseYear}
+              <br></br>
+              <svg value={movie._id} onClick={() => this.addFavorite(movie)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="heart" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+              </svg>
             </h1>
           </div>
           <div className="movie-genre">
@@ -68,16 +72,8 @@ export class MovieView extends React.Component {
             ))}
           </div>
           <div className="movie-stars">
-            <span className="label">Actors:</span>
-            <span className="value">{movie.Stars}</span>
-          </div>
-          <div className="movie-releaseYear">
-            <span className="label">Release Year:</span>
-            <span className="value">{movie.ReleaseYear}</span>
-          </div>
-          <div className="movie-rating">
-            <span className="label">Rating:</span>
-            <span className="value">{movie.Rating}</span>
+            <span className="label">Stars:</span> <br></br>
+            <span className="value"> {movie.Stars}</span>
           </div>
           <Button className="mt-4" variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
         </Col>
