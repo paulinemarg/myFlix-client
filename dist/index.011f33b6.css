@@ -59,6 +59,72 @@
 .account {
   margin-top: 20px;
 }
+.main-view {
+  text-align: center;
+}
+
+.card-container {
+  background-color: black;
+}
+
+.card-container:hover {
+  opacity: 0.5;
+}
+
+.card-body {
+  background-color: black;
+}
+
+.card-img {
+  height: 500px;
+}
+
+.title-container {
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  box-shadow: 0 0 200px #161616;
+}
+
+.card-title {
+  font-size: 24px;
+  position: absolute;
+  bottom: 4%;
+  width: 70%;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.featured {
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 20px;
+  background-color: #eeb53a;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  font-size: 14px;
+  position: absolute;
+  left: -4%;
+  bottom: 100%;
+}
+
+.rating {
+  position: absolute;
+  bottom: 0;
+  right: inherit;
+  text-align: right;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.star {
+  height: 24px;
+  margin-bottom: 7px;
+  color: #eeb53a;
+}
 * {
   box-sizing: border-box;
 }
@@ -77,18 +143,29 @@
 }
 
 .movie-body {
-  text-align: center;
+  float: left;
   font-size: 18px;
-  margin: auto;
 }
 
 .movie-poster img {
   height: 600px;
   width: 400px;
-  float: left;
+  float: right;
   box-shadow: 0 0 200px #161616;
 }
 
+.heart {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+.director-img {
+  height: 250px;
+}
 
 * {
   box-sizing: border-box;
@@ -100,6 +177,21 @@
   box-shadow: 5px 5px 5px black;
   border-radius: 15px;
 }
+
+.movieCard {
+  width: 300px;
+  height: 300px;
+}
+
+.trash {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 .custom-link {
   color: white;
 }
@@ -110,6 +202,19 @@
 
 .logo {
   max-width: 50%;
+}
+
+.body {
+  font-family: "Arvo", serif;
+}
+
+.main-view {
+  font-family: "Arvo", serif;
+}
+
+.thor, .italian-job, .interstellar {
+  width: 100%;
+  height: 300px;
 }
 @charset "UTF-8";
 /*!

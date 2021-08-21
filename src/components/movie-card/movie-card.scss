@@ -1,0 +1,66 @@
+.main-view {
+  text-align: center;
+}
+
+.card-container { 
+  background-color: black;
+}
+
+.card-container:hover {
+  opacity: 0.5;
+}
+
+.card-body {
+  background-color: black;
+}
+
+.card-img {
+  height: 500px;
+}
+
+.title-container {
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  box-shadow: 0 0 200px rgb(22, 22, 22);
+}
+
+.card-title {
+    font-size: 24px;
+    position: absolute;
+    bottom: 4%;
+    width: 70%;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.featured {
+    display: grid;
+    place-items: center;
+    width: 65px;
+    height: 20px;
+    background-color: rgb(238, 181, 58);
+    color: white;
+    border-radius: 0 5px 5px 0;
+    font-size: 14px;
+    position: absolute;
+    left: -4%;
+    bottom: 100%;
+}
+  
+.rating {
+    position: absolute;
+    bottom: 0;
+    right: inherit;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: bold;
+}
+  
+.star {
+    height: 24px;
+    margin-bottom: 7px;
+    color: rgb(238, 181, 58)
+}
