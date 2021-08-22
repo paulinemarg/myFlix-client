@@ -15,15 +15,15 @@ export class DirectorView extends React.Component {
           </Col>
           <Row className="director-view">
             <span className="label"></span>
-            <span className="value font-weight-bold">{director.Name}-{director.Birth}</span>
+            <span className="value text-white font-weight-bold">{director.Name}-{director.Birth}</span>
           </Row>
           <Row className="director-bio">
             <span className="label"></span>
-            <span className="value">{director.Bio}</span>
+            <span className="value text-white">{director.Bio}</span>
           </Row>
           <Row className="director-filmography">
-            <span className="label font-weight-bold">His famous works:</span>
-            <span className="value">{director.Filmography}</span>
+            <span className="label text-white font-weight-bold">His famous works:</span>
+            <span className="value text-white">{director.Filmography}</span>
           </Row>
         </Row>
       </Container>
