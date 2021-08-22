@@ -21,7 +21,10 @@ class MainView extends React.Component {
     super();
     this.state = {
       movies: [],
-      user: null
+      genres: [],
+      directors: [],
+      user: null,
+      hasAccount: true,
     };
   }
 
@@ -88,10 +91,6 @@ class MainView extends React.Component {
     });
   }
 
-  goToLogin() {
-    this.setState({ register: true });
-  }
-
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
@@ -101,23 +100,53 @@ class MainView extends React.Component {
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
+    this.getDirectors(authData.token);
+    this.getGenres(authData.token);
   }
 
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    <Redirect push to="/" />;
     this.setState({
       user: null
     });
   }
 
+  // Handler to navigate from LoginView to RegistrationView
+  handleRegister = () => {
+    this.setState({
+      hasAccount: false,
+    });
+  };
+
+  //Handler to navigate from RegistrationView to LoginView
+  handleLogin = () => {
+    this.setState({
+      hasAccount: true,
+    });
+  };
 
   render() {
-    const { movies, user, directors, genres } = this.state;
+    const { movies, user, directors, genres, hasAccount } = this.state;
+
+    // on LoginView, when 'New User Sign Up' is clicked, goes to ReistrationView
+    if (!hasAccount) return <RegistrationView handleLogin={this.handleLogin} />;
+
+    // Renders LoginView if no user
+    if (!user)
+      return (
+        <LoginView
+          onLoggedIn={(user) => this.onLoggedIn(user)}
+          handleRegister={this.handleRegister}
+        />
+      );
+
+    if (!movies) return <div className="main-view" />;
 
     return (
       <Router className="mainview-container">
-        <Navbar className="body" bg="dark" collapseOnSelect expand="lg" sticky="top" variant="dark">
+        <Navbar className="custom-navbar" collapseOnSelect expand="lg" sticky="top">
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
@@ -126,11 +155,11 @@ class MainView extends React.Component {
               <Link className="custom-link mx-3" to={`/genres`}>Genres</Link>
               <Link className="custom-link mx-3" to={`/users/:username`}>Profile</Link>
             </Nav>
-            <Button className="logout-button mx-3" variant="outline-danger" onClick={() => { this.onLoggedOut(); }}>Logout</Button>
+            <Button className="logout-button mx-3" variant="outline-light" onClick={() => { this.onLoggedOut(); }}>Logout</Button>
           </Navbar.Collapse>
         </Navbar>
         <Row className="main-view justify-content-center">
-          <img src={logo} width={20} height={200} className="logo justify-content-center-md-center" />
+          <img src={logo} width={20} height={200} className="custom-logo justify-content-center-md-center" />
           <Carousel className="Carousel-container">
             <Carousel.Item>
               <img className="thor" src="https://www.assignmentx.com/wp-content/uploads/2011/03/THOR-12x5-Banner_fin2-online.jpg" />
