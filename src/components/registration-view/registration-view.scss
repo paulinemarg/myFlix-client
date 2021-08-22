@@ -11,12 +11,10 @@
   padding: 1.5%;
   background-color: black;
   color: white;
-  border: 5px solid black;
-  border-radius: 10px;
 }
 
 .signinBtn, .loginBtn {
-  width: 100px;
+  width: 150px;
   margin-top: 10px;
   border-radius: 10px;
 }
@@ -27,4 +25,8 @@
 
 .have-account {
   padding-top: 20px;
+}
+
+.logo {
+  margin-right: 500px;
 }
