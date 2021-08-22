@@ -2,16 +2,8 @@
   text-align: center;
 }
 
-.card-container { 
-  background-color: black;
-}
-
 .card-container:hover {
   opacity: 0.5;
-}
-
-.card-body {
-  background-color: black;
 }
 
 .card-img {
@@ -21,10 +13,10 @@
 .title-container {
   width: 100%;
   background-color: black;
+  color: white;
   position: absolute;
   bottom: -5px;
   right: 0;
-  box-shadow: 0 0 200px rgb(22, 22, 22);
 }
 
 .card-title {
