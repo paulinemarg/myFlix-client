@@ -10,10 +10,10 @@ export class GenreView extends React.Component {
     return (
       <Container className="mt-5">
         <Col>
-          <Row className="text-black">
+          <Row className="text-white">
             <span className="font-weight-bold">{genre.Name}</span>
           </Row>
-          <Row className="text-black">
+          <Row className="text-white">
             <span className="genre-description">{genre.Description}</span>
           </Row>
         </Col>
