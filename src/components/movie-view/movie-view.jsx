@@ -37,7 +37,7 @@ export class MovieView extends React.Component {
         <Col md={12} lg={6} className="movie-poster">
           <img className="w-120" src={movie.ImagePath} />
         </Col>
-        <Col md={12} lg={6} className="movie-body">
+        <Col md={12} lg={6} className="custom-body">
           <div className="movie-title">
             <span className="label"></span>
             <h1 className="value">{movie.Title} - {movie.ReleaseYear}
@@ -51,7 +51,7 @@ export class MovieView extends React.Component {
             <span className="label"></span>
             {movie.Genre.map((Genre) => (
               <Link key={Genre._id} to={`/genres/${Genre.Name}`}>
-                <Button className="link" variant="link">
+                <Button className="custom-link" variant="link">
                   <h4>{Genre.Name}</h4>
                 </Button>
               </Link>
@@ -65,7 +65,7 @@ export class MovieView extends React.Component {
             <span className="label">Directed by:</span>
             {movie.Director.map((Director) => (
               <Link key={Director._id} to={`/directors/${Director.Name}`}>
-                <Button className="link" variant="link">
+                <Button className="custom-link" variant="link">
                   <h3>{Director.Name}</h3>
                 </Button>
               </Link>
