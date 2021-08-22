@@ -18,7 +18,7 @@ export class MovieCard extends React.Component {
           </Link>
         </Card.Body>
         <Link to={`/movies/${movie._id}`}>
-          <div className="title-container text-white">
+          <div className="title-container">
             {movie.Featured ? (
               <p className="card-title">{movie.Title}<span className="featured">Featured</span></p>
             ) : (
