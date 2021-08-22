@@ -1,3 +1,5 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
 * {
   box-sizing: border-box;
 }
@@ -11,11 +13,10 @@
   padding: 1.5%;
   background-color: black;
   color: white;
-  border-radius: 10px;
 }
 
 .loginBtn {
-  width: 100px;
+  width: 150px;
   margin-top: 10px;
   border-radius: 10px;
 }
@@ -23,9 +24,13 @@
 .RegisterBtn {
   margin-top: 15px;
   border-radius: 10px;
-  width: 100px;
+  width: 150px;
 }
 
 .account {
   margin-top: 20px;
+}
+
+.logo {
+  margin-right: 500px;
 }
