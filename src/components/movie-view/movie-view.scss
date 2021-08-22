@@ -1,3 +1,4 @@
+@import "node_modules/bootstrap/scss/bootstrap";
 * {
   box-sizing: border-box;
 }
@@ -15,9 +16,10 @@
   margin-top: 1%;
 }
 
-.movie-body {
+.custom-body {
   float: left;
   font-size: 18px;
+  color: white;
 }
 
 .movie-poster img {
@@ -37,3 +39,6 @@
   }
 }
 
+.custom-link {
+  color: red !important;
+}
