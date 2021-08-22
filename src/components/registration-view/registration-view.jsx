@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Navbar, Container } from 'react-bootstrap';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
+import logo from '../../../public/logo.jpg';
 import './registration-view.scss';
 
 export function RegistrationView(props) {
@@ -39,30 +40,39 @@ export function RegistrationView(props) {
   }
 
   return (
-    <Form className="Signin justify-content-md-center">
-      <Form.Group className="mb-3" controlId="formBasicUsername">
-        <Form.Label>Username</Form.Label>
-        <Form.Control placeholder="Enter Username" type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control placeholder="Enter email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
-        <Form.Text className="text-white">We'll never share your email with anyone else</Form.Text>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control placeholder="Enter Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicBirthday">
-        <Form.Label>Date of Birth</Form.Label>
-        <Form.Control placeholder="YYYY-MM-DD" type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
-        <Form.Text className="text-white">We'll never share your Birthday with anyone else</Form.Text>
-      </Form.Group>
-      <Button className="signinBtn" variant="light" type="submit" onClick={handleSubmit}>Register</Button>
-      <br></br>
-      <p className="have-account">Already have an account?</p>
-      <Button className="loginBtn" variant="light" type="submit" onClick={handleClick}>Log in</Button>
-    </Form>
+    <>
+      <Navbar>
+        <Container>
+          <Navbar.Brand href="#home">
+            <img src={logo} className="logo justify-content-center-md-center" />
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+      <Form className="Signin justify-content-md-center">
+        <Form.Group className="mb-3" controlId="formBasicUsername">
+          <Form.Label>Username</Form.Label>
+          <Form.Control placeholder="Enter Username" type="text" value={username} onChange={e => setUsername(e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control placeholder="Enter email" type="email" value={email} onChange={e => setEmail(e.target.value)} />
+          <Form.Text className="text-white">We'll never share your email with anyone else</Form.Text>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control placeholder="Enter Password" type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicBirthday">
+          <Form.Label>Date of Birth</Form.Label>
+          <Form.Control placeholder="YYYY-MM-DD" type="birthday" value={birthday} onChange={e => setBirthday(e.target.value)} />
+          <Form.Text className="text-white">We'll never share your Birthday with anyone else</Form.Text>
+        </Form.Group>
+        <Button className="signinBtn" variant="outline-light" type="submit" onClick={handleSubmit}>Register</Button>
+        <br></br>
+        <p className="have-account">Already have an account?</p>
+        <Button className="loginBtn" variant="outline-light" type="submit" onClick={handleClick}>Log in</Button>
+      </Form>
+    </>
   );
 }
 
