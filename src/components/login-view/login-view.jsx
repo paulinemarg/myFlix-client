@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
-import { Form, Button, Row } from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
+import { Form, Button, Navbar, Container } from 'react-bootstrap';
 import axios from 'axios';
 
+import logo from '../../../public/logo.jpg';
 import './login-view.scss';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  let history = useHistory();
+  const { handleRegister } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,12 +27,15 @@ export function LoginView(props) {
       });
   };
 
-  function handleClick() {
-    history.push("/register");
-  }
-
   return (
     <>
+      <Navbar>
+        <Container>
+          <Navbar.Brand href="#home">
+            <img src={logo} className="logo justify-content-center-md-center" />
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
       <Form className="Login">
         <Form.Group className="mb-3" controlId="formBasicUsername">
           <Form.Label>Username</Form.Label>
@@ -42,9 +45,9 @@ export function LoginView(props) {
           <Form.Label>Password</Form.Label>
           <Form.Control placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
         </Form.Group>
-        <Button className="loginBtn" variant="light" type="submit" onClick={handleSubmit}>Log In</Button>
+        <Button className="loginBtn" variant="outline-light" type="submit" onClick={handleSubmit}>Log In</Button>
         <p className="account">Don't have an acount?</p>
-        <Button className="RegisterBtn" variant="light" type="submit" onClick={handleClick}>Register</Button>
+        <Button className="RegisterBtn" variant="outline-light" type="submit" onClick={handleRegister}>Register</Button>
       </Form>
     </>
   );
