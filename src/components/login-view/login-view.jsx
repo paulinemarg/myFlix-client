@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { Form, Button, Navbar, Container } from 'react-bootstrap';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 import logo from '../../../public/logo.jpg';
 import './login-view.scss';
@@ -52,6 +53,12 @@ export function LoginView(props) {
     </>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (username, password) => dispatch(handleSubmit(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);
 
 LoginView.propTypes = {
   user: PropTypes.shape({
