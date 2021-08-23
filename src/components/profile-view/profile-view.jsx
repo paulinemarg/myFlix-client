@@ -13,7 +13,7 @@ export class ProfileView extends React.Component {
       Username: null,
       Password: null,
       Email: null,
-      Birthday: null,
+      Birthyear: null,
       FavoriteMovies: [],
       validated: null,
     };
@@ -56,7 +56,7 @@ export class ProfileView extends React.Component {
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          Birthyear: response.data.Birthyear,
           FavoriteMovies: response.data.FavoriteMovies,
         });
       })
@@ -88,7 +88,7 @@ export class ProfileView extends React.Component {
       Username: this.state.Username,
       Password: this.state.Password,
       Email: this.state.Email,
-      Birthday: this.state.Birthday,
+      Birthyear: this.state.Birthyear,
     }, { headers: { Authorization: `Bearer ${token}` } }
     )
 
@@ -98,7 +98,7 @@ export class ProfileView extends React.Component {
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          Birthyear: response.data.Birthyear,
         });
         localStorage.setItem("user", this.state.Username);
         window.open(`/users/${username}`, "_self");
@@ -119,8 +119,8 @@ export class ProfileView extends React.Component {
     this.state.Email = input;
   }
 
-  setBirthday(input) {
-    this.state.Birthday = input;
+  setBirthyear(input) {
+    this.state.Birthyear = input;
   }
 
   handleDeleteUser(e) {
@@ -189,9 +189,9 @@ export class ProfileView extends React.Component {
                         <Form.Control type="email" value={this.state.Email} onChange={(e) => this.setState({ Email: e.target.value })} />
                       </FloatingLabel>
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicBirthday">
-                      <FloatingLabel controlId="birthday" label="Birthday">
-                        <Form.Control type="date" value={this.state.Birthday} onChange={(e) => this.setState({ Birthday: e.target.value })} />
+                    <Form.Group className="mb-3" controlId="formBasicBirthyear">
+                      <FloatingLabel controlId="birthyear" label="Date of Birth">
+                        <Form.Control type="date" value={this.state.Birthyear} onChange={(e) => this.setState({ Birthyear: e.target.value })} />
                       </FloatingLabel>
                     </Form.Group>
                   </Col>
@@ -246,7 +246,7 @@ ProfileView.propTypes = {
     FavoriteMovies: PropTypes.array.isRequired,
     Username: PropTypes.string.isRequired,
     Email: PropTypes.string.isRequired,
-    Birth: PropTypes.string.isRequired,
+    Birthyear: PropTypes.date,
     FavoriteMovies: PropTypes.array.isRequired,
   }),
 };
