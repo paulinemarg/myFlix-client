@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Row, Col, Form, Button, Card, FloatingLabel, Accordion } from 'react-bootstrap';
 
+import { connect } from 'react-redux';
+import { setUser, updateUser } from '../../actions/actions';
+
 import './profile-view.scss'
 
 export class ProfileView extends React.Component {
@@ -240,6 +243,14 @@ export class ProfileView extends React.Component {
     );
   }
 }
+let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
+  }
+}
+
+export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
 
 ProfileView.propTypes = {
   username: PropTypes.shape({
