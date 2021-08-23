@@ -1,16 +1,20 @@
 import React from 'react';
 import axios from 'axios';
-
+import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
+
+import { connect } from 'react-redux';
+import { setMovies, setUser } from '../../actions/actions';
 
 import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import MoviesList from '../movies-list/movies-list';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
-import { Row, Col, Button, Navbar, Nav, Form, FormControl, FormLabel, Carousel } from 'react-bootstrap';
+
+import { Row, Col, Button, Navbar, Nav, Carousel } from 'react-bootstrap';
 
 import logo from '../../../public/logo.jpg';
 import "./main-view.scss";
@@ -20,20 +24,23 @@ class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
+      //movies: [],
       genres: [],
       directors: [],
-      user: null,
+      //user: null,
       hasAccount: true,
     };
   }
 
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
+    let user = localStorage.getItem('user');
     if (accessToken !== null) {
-      this.setState({
+      /* this.setState({
         user: localStorage.getItem('user')
-      });
+      }); */
+      this.props.setUser(user);
+      console.log(user);
       this.getMovies(accessToken);
       this.getDirectors(accessToken);
       this.getGenres(accessToken);
@@ -46,9 +53,10 @@ class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        this.setState({
+        /* this.setState({
           movies: response.data
-        });
+        }); */
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -93,10 +101,10 @@ class MainView extends React.Component {
 
   onLoggedIn(authData) {
     console.log(authData);
-    this.setState({
+    /* this.setState({
       user: authData.user.Username
-    });
-
+    }); */
+    this.props.setUser(authData.user.Username);
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
@@ -107,10 +115,11 @@ class MainView extends React.Component {
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    <Redirect push to="/" />;
+    /*<Redirect push to="/" />;
     this.setState({
       user: null
-    });
+    }); */
+    window.open('/', '_self');
   }
 
   // Handler to navigate from LoginView to RegistrationView
@@ -128,7 +137,8 @@ class MainView extends React.Component {
   };
 
   render() {
-    const { movies, user, directors, genres, hasAccount } = this.state;
+    const { directors, genres, hasAccount } = this.state;
+    const { movies, user } = this.props;
 
     // on LoginView, when 'New User Sign Up' is clicked, goes to ReistrationView
     if (!hasAccount) return <RegistrationView handleLogin={this.handleLogin} />;
@@ -158,28 +168,25 @@ class MainView extends React.Component {
             <Button className="logout-button mx-3" variant="outline-light" onClick={() => { this.onLoggedOut(); }}>Logout</Button>
           </Navbar.Collapse>
         </Navbar>
+        <img src={logo} width={20} height={200} className="custom-logo justify-content-center-md-center" />
+        <Carousel className="Carousel-container">
+          <Carousel.Item>
+            <img className="thor" src="https://www.assignmentx.com/wp-content/uploads/2011/03/THOR-12x5-Banner_fin2-online.jpg" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="italian-job" src="https://filmmusiccentral.files.wordpress.com/2019/08/0_0_121368_00h_1280x640.jpg" />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="interstellar" src="https://www.joblo.com/wp-content/uploads/2014/10/interstellar-quad-nolan-1.jpg" />
+          </Carousel.Item>
+        </Carousel>
         <Row className="main-view justify-content-center">
-          <img src={logo} width={20} height={200} className="custom-logo justify-content-center-md-center" />
-          <Carousel className="Carousel-container">
-            <Carousel.Item>
-              <img className="thor" src="https://www.assignmentx.com/wp-content/uploads/2011/03/THOR-12x5-Banner_fin2-online.jpg" />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="italian-job" src="https://filmmusiccentral.files.wordpress.com/2019/08/0_0_121368_00h_1280x640.jpg" />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img className="interstellar" src="https://www.joblo.com/wp-content/uploads/2014/10/interstellar-quad-nolan-1.jpg" />
-            </Carousel.Item>
-          </Carousel>
           <Route exact path="/" render={() => {
             if (!user) return <Col>
               <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
             </Col>
-            return movies.map(m => (
-              <Col md={3} key={m._id}>
-                <MovieCard movie={m} />
-              </Col>
-            ))
+            if (movies.length === 0) return <div className="main-view" />;
+            return <MoviesList movies={movies} />;
           }} />
           <Route path="/register" render={() => {
             if (user) return <Redirect to="/" />;
@@ -252,4 +259,19 @@ class MainView extends React.Component {
     );
   }
 }
-export default MainView;
+
+let mapStateToProps = state => {
+  return {
+    movies: state.movies,
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
+
+MainView.propTypes = {
+  setMovies: PropTypes.func.isRequired,
+  setUser: PropTypes.func.isRequired,
+  movies: PropTypes.array.isRequired,
+  user: PropTypes.string.isRequired,
+};
