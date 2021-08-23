@@ -20873,7 +20873,7 @@ textarea.form-control-lg {
   box-shadow: 0 0 200px #161616;
 }
 .heart {
-  animation: blinker 2s linear infinite;
+  animation: blinker 1s linear infinite;
 }
 @keyframes blinker {
   50% {
