@@ -1,5 +1,8 @@
 <h1 align="center">MyFlix-client Documentation</h1>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d17fdf07-301b-466d-8cb5-6e9b661cbb85/deploy-status)](https://app.netlify.com/sites/paulinemarg-myflix/deploys)
+
+
 # Objective
 
 To build the client-side of an application called myFlix using **React** based on its existing server-side code (REST API and database) 
