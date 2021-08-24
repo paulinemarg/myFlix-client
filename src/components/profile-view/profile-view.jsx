@@ -253,7 +253,7 @@ export class ProfileView extends React.Component {
 
 // export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
 
-ProfileView.propTypes = {
+/* ProfileView.propTypes = {
   username: PropTypes.shape({
     FavoriteMovies: PropTypes.array.isRequired,
     Username: PropTypes.string.isRequired,
@@ -261,4 +261,4 @@ ProfileView.propTypes = {
     Birthyear: PropTypes.date,
     FavoriteMovies: PropTypes.array.isRequired,
   }),
-};
+}; */
