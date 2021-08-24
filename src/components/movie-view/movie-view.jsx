@@ -18,7 +18,7 @@ export class MovieView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.post(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
+    axios.post(`https://backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
       headers: { Authorization: `Bearer ${token}` },
       validateStatus: function (status) {
         return status < 500;
