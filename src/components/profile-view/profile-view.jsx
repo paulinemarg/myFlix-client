@@ -152,6 +152,9 @@ export class ProfileView extends React.Component {
 
     axios.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
       headers: { Authorization: `Bearer ${token}` },
+      validateStatus: function (status) {
+        return status < 500;
+      }
     })
       .then(response => {
         alert("Removed from favorites!");
