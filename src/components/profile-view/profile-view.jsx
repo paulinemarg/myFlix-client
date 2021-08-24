@@ -243,12 +243,13 @@ export class ProfileView extends React.Component {
     );
   }
 }
-let mapStateToProps = state => {
+
+/* let mapStateToProps = state => {
   return {
     user: state.user,
     movies: state.movies
   }
-}
+} */
 
 // export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
 
