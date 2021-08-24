@@ -231,7 +231,7 @@ export class ProfileView extends React.Component {
               <h3 className="m-auto black-text">Favorites</h3>
             </Accordion.Header>
             <Accordion.Body className="text-center full-black" sm={12} md={6}>
-              {FavoriteMovies.length === 0 && <div className="text-center text-light m-auto">You don`t have favorite movies yet!</div>}
+              {(FavoriteMovies || []).length === 0 && <div className="text-center text-light m-auto">You don`t have favorite movies yet!</div>}
               <div className="favorite-movies d-flex justify-content-center ">
                 {FavoriteMovies.length > 0 &&
                   movies.map((movie) => {

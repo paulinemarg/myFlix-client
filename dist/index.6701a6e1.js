@@ -43131,7 +43131,7 @@ class ProfileView extends _reactDefault.default.Component {
                                 },
                                 __self: this,
                                 children: [
-                                    FavoriteMovies.length === 0 && /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                    (FavoriteMovies || []).length === 0 && /*#__PURE__*/ _jsxRuntime.jsx("div", {
                                         className: "text-center text-light m-auto",
                                         __source: {
                                             fileName: "src/components/profile-view/profile-view.jsx",
