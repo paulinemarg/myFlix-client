@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
 
 import { connect } from 'react-redux';
-import { setMovies, setUser } from '../../actions/actions';
+import { setMovies } from '../../actions/actions';
 
 import { RegistrationView } from "../registration-view/registration-view";
 import { LoginView } from '../login-view/login-view';
@@ -27,7 +27,7 @@ class MainView extends React.Component {
       //movies: [],
       genres: [],
       directors: [],
-      //user: null,
+      user: null,
       hasAccount: true,
     };
   }
@@ -36,10 +36,9 @@ class MainView extends React.Component {
     let accessToken = localStorage.getItem('token');
     let user = localStorage.getItem('user');
     if (accessToken !== null) {
-      /* this.setState({
+      this.setState({
         user: localStorage.getItem('user')
-      }); */
-      this.props.setUser(user);
+      });
       console.log(user);
       this.getMovies(accessToken);
       this.getDirectors(accessToken);
@@ -101,10 +100,9 @@ class MainView extends React.Component {
 
   onLoggedIn(authData) {
     console.log(authData);
-    /* this.setState({
+    this.setState({
       user: authData.user.Username
-    }); */
-    this.props.setUser(authData.user.Username);
+    });
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
@@ -115,11 +113,10 @@ class MainView extends React.Component {
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    /*<Redirect push to="/" />;
+    <Redirect push to="/" />;
     this.setState({
       user: null
-    }); */
-    window.open('/', '_self');
+    });
   }
 
   // Handler to navigate from LoginView to RegistrationView
@@ -137,8 +134,8 @@ class MainView extends React.Component {
   };
 
   render() {
-    const { directors, genres, hasAccount } = this.state;
-    const { movies, user } = this.props;
+    const { user, directors, genres, hasAccount } = this.state;
+    const { movies } = this.props;
 
     // on LoginView, when 'New User Sign Up' is clicked, goes to ReistrationView
     if (!hasAccount) return <RegistrationView handleLogin={this.handleLogin} />;
@@ -263,15 +260,15 @@ class MainView extends React.Component {
 let mapStateToProps = state => {
   return {
     movies: state.movies,
-    user: state.user
+    //user: state.user
   }
 }
 
-export default connect(mapStateToProps, { setMovies, setUser })(MainView);
+export default connect(mapStateToProps, { setMovies })(MainView);
 
 MainView.propTypes = {
   setMovies: PropTypes.func.isRequired,
-  setUser: PropTypes.func.isRequired,
+  //setUser: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired,
-  user: PropTypes.string.isRequired,
+  //user: PropTypes.string.isRequired,
 };
