@@ -36,10 +36,7 @@ export class ProfileView extends React.Component {
     const FavoriteMovies = this.state;
 
     axios.get(`https:backend-myflix.herokuapp.com/users/${username}`, {
-      headers: { Authorization: `Bearer ${token}` },
-      validateStatus: function (status) {
-        return status < 500;
-      }
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
         this.setState({
@@ -56,9 +53,6 @@ export class ProfileView extends React.Component {
     const username = localStorage.getItem('user');
     axios.get(`https:backend-myflix.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
-      validateStatus: function (status) {
-        return status < 500;
-      }
     })
       .then((response) => {
         this.setState({
@@ -98,12 +92,8 @@ export class ProfileView extends React.Component {
       Password: this.state.Password,
       Email: this.state.Email,
       Birthyear: this.state.Birthyear,
-    }, {
-      headers: { Authorization: `Bearer ${token}` },
-      validateStatus: function (status) {
-        return status < 500;
-      }
-    })
+    }, { headers: { Authorization: `Bearer ${token}` } }
+    )
 
       .then((response) => {
         alert("Saved Changes!");
@@ -144,9 +134,6 @@ export class ProfileView extends React.Component {
 
     axios.delete(`https:backend-myflix.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
-      validateStatus: function (status) {
-        return status < 500;
-      }
     })
       .then(() => {
         localStorage.removeItem('user');
@@ -165,9 +152,6 @@ export class ProfileView extends React.Component {
 
     axios.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
       headers: { Authorization: `Bearer ${token}` },
-      validateStatus: function (status) {
-        return status < 500;
-      }
     })
       .then(response => {
         alert("Removed from favorites!");
