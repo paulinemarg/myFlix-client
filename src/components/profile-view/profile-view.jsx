@@ -158,6 +158,7 @@ export class ProfileView extends React.Component {
     })
       .then(response => {
         alert("Removed from favorites!");
+        window.open(`/users/${username}`, '_self');
       })
       .catch(function (error) {
         console.log(error);
