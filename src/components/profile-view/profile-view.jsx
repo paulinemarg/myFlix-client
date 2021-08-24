@@ -35,7 +35,7 @@ export class ProfileView extends React.Component {
     const username = localStorage.getItem('user');
     const FavoriteMovies = this.state;
 
-    axios.get(`https:backend-myflix.herokuapp.com/users/${username}`, {
+    axios.get(`https://backend-myflix.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
@@ -51,7 +51,7 @@ export class ProfileView extends React.Component {
   // Gets user
   getUser(token) {
     const username = localStorage.getItem('user');
-    axios.get(`https:backend-myflix.herokuapp.com/users/${username}`, {
+    axios.get(`https://backend-myflix.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((response) => {
@@ -87,7 +87,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
 
-    axios.put(`https:backend-myflix.herokuapp.com/users/${username}`, {
+    axios.put(`https://backend-myflix.herokuapp.com/users/${username}`, {
       Username: this.state.Username,
       Password: this.state.Password,
       Email: this.state.Email,
@@ -132,7 +132,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.delete(`https:backend-myflix.herokuapp.com/users/${username}`, {
+    axios.delete(`https://backend-myflix.herokuapp.com/users/${username}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(() => {
@@ -150,7 +150,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
     const username = localStorage.getItem("user");
 
-    axios.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+    axios.delete(`https://backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
       headers: { Authorization: `Bearer ${token}` },
       validateStatus: function (status) {
         return status < 500;
