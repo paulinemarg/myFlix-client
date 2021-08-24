@@ -250,7 +250,7 @@ let mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
+// export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
 
 ProfileView.propTypes = {
   username: PropTypes.shape({
