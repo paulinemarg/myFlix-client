@@ -43217,13 +43217,12 @@ class ProfileView extends _reactDefault.default.Component {
         }));
     }
 }
-let mapStateToProps = (state)=>{
-    return {
-        user: state.user,
-        movies: state.movies
-    };
-};
-// export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
+/* let mapStateToProps = state => {
+  return {
+    user: state.user,
+    movies: state.movies
+  }
+} */ // export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
 ProfileView.propTypes = {
     username: _propTypesDefault.default.shape({
         FavoriteMovies: _propTypesDefault.default.array.isRequired,
