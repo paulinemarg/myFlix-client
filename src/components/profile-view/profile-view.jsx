@@ -158,7 +158,6 @@ export class ProfileView extends React.Component {
     })
       .then(response => {
         alert("Removed from favorites!");
-        window.location.reload();
       })
       .catch(function (error) {
         console.log(error);
