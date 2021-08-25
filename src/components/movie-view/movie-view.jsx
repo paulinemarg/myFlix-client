@@ -18,8 +18,11 @@ export class MovieView extends React.Component {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    axios.post(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
-      headers: { Authorization: `Bearer ${token}` }
+    axios.post(`https://backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` },
+      validateStatus: function (status) {
+        return status < 500;
+      }
     })
       .then(() => {
         alert(`Added to Favorites List`)
@@ -42,9 +45,9 @@ export class MovieView extends React.Component {
             <span className="label"></span>
             <h1 className="value">{movie.Title} - {movie.ReleaseYear}
               <br></br>
-              <svg value={movie._id} onClick={() => this.addFavorite(movie)} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="heart" viewBox="0 0 16 16">
+              <Button className="heartBtn" variant="outline-light" value={movie._id} onClick={() => this.addFavorite(movie)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="heart" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-              </svg>
+              </svg></Button>
             </h1>
           </div>
           <div className="movie-genre">
