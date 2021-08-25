@@ -41103,24 +41103,38 @@ function RegistrationView(props) {
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
-    const [birthday, setBirthday] = _react.useState('');
+    const [birthyear, setBirthyear] = _react.useState('');
+    const [validated, setValidated] = _react.useState(false);
+    const [errorMessage, setErrorMessage] = _react.useState('');
+    const [errorStatus, setErrorStatus] = _react.useState('');
+    const [errorResponse, setErrorResponse] = _react.useState('');
     let history = _reactRouterDom.useHistory();
-    const handleSubmit = (e)=>{
-        e.preventDefault();
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
         _axiosDefault.default.post('https://backend-myflix.herokuapp.com/users', {
             Username: username,
             Password: password,
             Email: email,
-            Birthday: birthday
+            Birthyear: birthyear
         }).then((response)=>{
             const data = response.data;
             console.log(data);
             alert('Registration successfull! Please Login.');
             window.open('/', '_self');
-        }).catch((e1)=>{
-            alert("The user is already registered.");
-            console.log('error registering the user');
+        }).catch((event1)=>{
+            console.log('error');
+            console.log(event1.response);
+            console.log(event1.response.request.response);
+            setErrorStatus(event1.response.request.status);
+            setErrorMessage(event1.response.request.statusText);
+            setErrorResponse(event1.response.request.response);
         });
+        setValidated(true);
     };
     function handleClick() {
         history.push("/");
@@ -41130,20 +41144,20 @@ function RegistrationView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 44
+                    lineNumber: 58
                 },
                 __self: this,
                 children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
                     __source: {
                         fileName: "src/components/registration-view/registration-view.jsx",
-                        lineNumber: 45
+                        lineNumber: 59
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
                         href: "#home",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 46
+                            lineNumber: 60
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
@@ -41151,7 +41165,7 @@ function RegistrationView(props) {
                             className: "logo justify-content-center-md-center",
                             __source: {
                                 fileName: "src/components/registration-view/registration-view.jsx",
-                                lineNumber: 47
+                                lineNumber: 61
                             },
                             __self: this
                         })
@@ -41159,10 +41173,12 @@ function RegistrationView(props) {
                 })
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
+                noValidate: true,
+                validated: validated,
                 className: "Signin justify-content-md-center",
                 __source: {
                     fileName: "src/components/registration-view/registration-view.jsx",
-                    lineNumber: 51
+                    lineNumber: 65
                 },
                 __self: this,
                 children: [
@@ -41171,14 +41187,14 @@ function RegistrationView(props) {
                         controlId: "formBasicUsername",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 52
+                            lineNumber: 66
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 53
+                                    lineNumber: 67
                                 },
                                 __self: this,
                                 children: "Username"
@@ -41189,11 +41205,31 @@ function RegistrationView(props) {
                                 value: username,
                                 onChange: (e)=>setUsername(e.target.value)
                                 ,
+                                minLength: "5",
+                                pattern: "[a-zA-Z0-9]+",
+                                required: true,
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 54
+                                    lineNumber: 68
                                 },
                                 __self: this
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control.Feedback, {
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 69
+                                },
+                                __self: this,
+                                children: "Perfect!"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control.Feedback, {
+                                type: "invalid",
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 70
+                                },
+                                __self: this,
+                                children: "Invalid Username.(minimum length = 5)"
                             })
                         ]
                     }),
@@ -41202,14 +41238,14 @@ function RegistrationView(props) {
                         controlId: "formBasicEmail",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 56
+                            lineNumber: 72
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 57
+                                    lineNumber: 73
                                 },
                                 __self: this,
                                 children: "Email address"
@@ -41220,17 +41256,35 @@ function RegistrationView(props) {
                                 value: email,
                                 onChange: (e)=>setEmail(e.target.value)
                                 ,
+                                required: true,
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 58
+                                    lineNumber: 74
                                 },
                                 __self: this
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control.Feedback, {
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 75
+                                },
+                                __self: this,
+                                children: "Perfect!"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control.Feedback, {
+                                type: "invalid",
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 76
+                                },
+                                __self: this,
+                                children: "Invalid Email."
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Text, {
                                 className: "text-white",
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 59
+                                    lineNumber: 77
                                 },
                                 __self: this,
                                 children: "We'll never share your email with anyone else"
@@ -41242,14 +41296,14 @@ function RegistrationView(props) {
                         controlId: "formBasicPassword",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 61
+                            lineNumber: 79
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 62
+                                    lineNumber: 80
                                 },
                                 __self: this,
                                 children: "Password"
@@ -41260,11 +41314,30 @@ function RegistrationView(props) {
                                 value: password,
                                 onChange: (e)=>setPassword(e.target.value)
                                 ,
+                                minLength: "5",
+                                required: true,
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 63
+                                    lineNumber: 81
                                 },
                                 __self: this
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control.Feedback, {
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 82
+                                },
+                                __self: this,
+                                children: "Perfect!"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control.Feedback, {
+                                type: "invalid",
+                                __source: {
+                                    fileName: "src/components/registration-view/registration-view.jsx",
+                                    lineNumber: 83
+                                },
+                                __self: this,
+                                children: "Invalid Password.(minimum length = 5)"
                             })
                         ]
                     }),
@@ -41273,14 +41346,14 @@ function RegistrationView(props) {
                         controlId: "formBasicBirthday",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 65
+                            lineNumber: 85
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 66
+                                    lineNumber: 86
                                 },
                                 __self: this,
                                 children: "Date of Birth"
@@ -41288,12 +41361,12 @@ function RegistrationView(props) {
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Control, {
                                 placeholder: "YYYY-MM-DD",
                                 type: "birthday",
-                                value: birthday,
-                                onChange: (e)=>setBirthday(e.target.value)
+                                value: birthyear,
+                                onChange: (e)=>setBirthyear(e.target.value)
                                 ,
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 67
+                                    lineNumber: 87
                                 },
                                 __self: this
                             }),
@@ -41301,7 +41374,7 @@ function RegistrationView(props) {
                                 className: "text-white",
                                 __source: {
                                     fileName: "src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 68
+                                    lineNumber: 88
                                 },
                                 __self: this,
                                 children: "We'll never share your Birthday with anyone else"
@@ -41315,7 +41388,7 @@ function RegistrationView(props) {
                         onClick: handleSubmit,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 70
+                            lineNumber: 90
                         },
                         __self: this,
                         children: "Register"
@@ -41323,7 +41396,7 @@ function RegistrationView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 71
+                            lineNumber: 91
                         },
                         __self: this
                     }),
@@ -41331,7 +41404,7 @@ function RegistrationView(props) {
                         className: "have-account",
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 72
+                            lineNumber: 92
                         },
                         __self: this,
                         children: "Already have an account?"
@@ -41343,7 +41416,7 @@ function RegistrationView(props) {
                         onClick: handleClick,
                         __source: {
                             fileName: "src/components/registration-view/registration-view.jsx",
-                            lineNumber: 73
+                            lineNumber: 93
                         },
                         __self: this,
                         children: "Log in"
@@ -41353,7 +41426,7 @@ function RegistrationView(props) {
         ]
     }));
 }
-_s(RegistrationView, "8A9KsGfe30v0O57GoUkR/FpYEUs=", false, function() {
+_s(RegistrationView, "Jeswf2rmdDISZ1SjIPyXG7GG0PQ=", false, function() {
     return [_reactRouterDom.useHistory];
 });
 _c = RegistrationView;
@@ -41362,7 +41435,7 @@ RegistrationView.propTypes = {
         Username: _propTypesDefault.default.string.isRequired,
         Password: _propTypesDefault.default.string.isRequired,
         Email: _propTypesDefault.default.string.isRequired,
-        Birthday: _propTypesDefault.default.date
+        Birthyear: _propTypesDefault.default.date
     })
 };
 var _c;
@@ -41763,7 +41836,7 @@ class MovieView extends _reactDefault.default.Component {
     addFavorite(movie) {
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('user');
-        _axiosDefault.default.post(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+        _axiosDefault.default.post(`https://backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
         }, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -42674,7 +42747,7 @@ class ProfileView extends _reactDefault.default.Component {
     getFavorites(token) {
         const username = localStorage.getItem('user');
         const FavoriteMovies = this.state;
-        _axiosDefault.default.get(`https:backend-myflix.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.get(`https://backend-myflix.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -42689,7 +42762,7 @@ class ProfileView extends _reactDefault.default.Component {
     // Gets user
     getUser(token) {
         const username = localStorage.getItem('user');
-        _axiosDefault.default.get(`https:backend-myflix.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.get(`https://backend-myflix.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -42721,7 +42794,7 @@ class ProfileView extends _reactDefault.default.Component {
         }
         const token = localStorage.getItem("token");
         const username = localStorage.getItem("user");
-        _axiosDefault.default.put(`https:backend-myflix.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.put(`https://backend-myflix.herokuapp.com/users/${username}`, {
             Username: this.state.Username,
             Password: this.state.Password,
             Email: this.state.Email,
@@ -42760,7 +42833,7 @@ class ProfileView extends _reactDefault.default.Component {
         e.preventDefault();
         const token = localStorage.getItem('token');
         const username = localStorage.getItem('user');
-        _axiosDefault.default.delete(`https:backend-myflix.herokuapp.com/users/${username}`, {
+        _axiosDefault.default.delete(`https://backend-myflix.herokuapp.com/users/${username}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -42776,7 +42849,7 @@ class ProfileView extends _reactDefault.default.Component {
     removeFavorite(movie) {
         const token = localStorage.getItem("token");
         const username = localStorage.getItem("user");
-        _axiosDefault.default.delete(`https:backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+        _axiosDefault.default.delete(`https://backend-myflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             },
@@ -42785,7 +42858,7 @@ class ProfileView extends _reactDefault.default.Component {
             }
         }).then((response)=>{
             alert("Removed from favorites!");
-            window.location.reload();
+            window.open(`/users/${username}`, '_self');
         }).catch(function(error) {
             console.log(error);
         });
