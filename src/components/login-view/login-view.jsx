@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
-import { Form, Button, Navbar, Container } from 'react-bootstrap';
+import { Form, Button, Container, Col, Row, Image } from 'react-bootstrap';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
@@ -24,32 +24,34 @@ export function LoginView(props) {
         props.onLoggedIn(data);
       })
       .catch(e => {
-        console.log('Invalid username or password');
+        alert('Invalid username or password');
       });
   };
 
   return (
     <>
-      <Navbar>
-        <Container>
-          <Navbar.Brand href="#home">
-            <img src={logo} className="logo justify-content-center-md-center" />
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
-      <Form className="Login">
-        <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Username</Form.Label>
-          <Form.Control placeholder="Username" type="text" onChange={e => setUsername(e.target.value)} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
-        </Form.Group>
-        <Button className="loginBtn" variant="outline-light" type="submit" onClick={handleSubmit}>Log In</Button>
-        <p className="account">Don't have an acount?</p>
-        <Button className="RegisterBtn" variant="outline-light" type="submit" onClick={handleRegister}>Register</Button>
-      </Form>
+      <Container>
+        <Col xs={12} md={8} lg={6} className="d-flex mx-auto">
+          <Row className="d-flex mx-auto mt-5 justify-content-center">
+            <h3 className="text-center mt-5 text-light">Welcome to</h3>
+            <Image className="logo mr-4" src={logo} />
+            <h4 className="text-center mt-5 text-light">Please login</h4>
+            <Form className="Login">
+              <Form.Group className="mb-3" controlId="formBasicUsername">
+                <Form.Label>Username</Form.Label>
+                <Form.Control placeholder="Username" type="text" onChange={e => setUsername(e.target.value)} />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control placeholder="Password" type="password" onChange={e => setPassword(e.target.value)} />
+              </Form.Group>
+              <Button className="loginBtn" variant="outline-light" type="submit" onClick={handleSubmit}>Log In</Button>
+              <p className="account">Don't have an acount?</p>
+              <Button className="RegisterBtn" variant="outline-light" type="submit" onClick={handleRegister}>Register</Button>
+            </Form>
+          </Row>
+        </Col>
+      </Container>
     </>
   );
 }
