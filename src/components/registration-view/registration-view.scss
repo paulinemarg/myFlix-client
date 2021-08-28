@@ -1,8 +1,14 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url(https://fonts.googleapis.com/css2?family=Arvo&display=swap);
+
 * {
   box-sizing: border-box;
+  font-family: 'Arvo', serif;
 }
 
 .Signin {
+  font-family: 'Arvo', serif;
+  font-size: 16px;
   display: block;
   text-align: center;
   width: 400px;
@@ -28,5 +34,10 @@
 }
 
 .logo {
-  margin-right: 500px;
+  max-width: 100%;
+  text-align: center;
+}
+
+h5 {
+  font-family: 'Arvo', serif;
 }
