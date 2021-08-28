@@ -1,17 +1,22 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
+@import url(https://fonts.googleapis.com/css2?family=Arvo&display=swap);
+
 * {
   box-sizing: border-box;
+  font-family: 'Arvo', serif;
 }
 
 .Login {
-  display: block;
+  font-family: 'Arvo', serif;
+  font-size: 16px;
+  max-width: 500px;
+  min-width: 300px;
+  max-height: 700px;
+  width: 30%;
+  height: 60%;
+  margin: 100px auto;
   text-align: center;
-  width: 500px;
-  margin: auto;
-  margin-top: 10%;
-  padding: 1.5%;
-  background-color: black;
   color: white;
 }
 
@@ -32,5 +37,10 @@
 }
 
 .logo {
-  margin-right: 500px;
+  max-width: 100%;
+  text-align: center;
+}
+
+h3, h4 {
+  font-family: 'Arvo', serif;
 }
