@@ -22872,6 +22872,10 @@ parcelHelpers.export(exports, "PageItem", ()=>_pageItemDefault.default
 );
 parcelHelpers.export(exports, "Pagination", ()=>_paginationDefault.default
 );
+parcelHelpers.export(exports, "Placeholder", ()=>_placeholderDefault.default
+);
+parcelHelpers.export(exports, "PlaceholderButton", ()=>_placeholderButtonDefault.default
+);
 parcelHelpers.export(exports, "Popover", ()=>_popoverDefault.default
 );
 parcelHelpers.export(exports, "PopoverHeader", ()=>_popoverHeaderDefault.default
@@ -23032,6 +23036,10 @@ var _pageItem = require("./PageItem");
 var _pageItemDefault = parcelHelpers.interopDefault(_pageItem);
 var _pagination = require("./Pagination");
 var _paginationDefault = parcelHelpers.interopDefault(_pagination);
+var _placeholder = require("./Placeholder");
+var _placeholderDefault = parcelHelpers.interopDefault(_placeholder);
+var _placeholderButton = require("./PlaceholderButton");
+var _placeholderButtonDefault = parcelHelpers.interopDefault(_placeholderButton);
 var _popover = require("./Popover");
 var _popoverDefault = parcelHelpers.interopDefault(_popover);
 var _popoverHeader = require("./PopoverHeader");
@@ -23077,7 +23085,7 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":"4CUf9","./AccordionContext":"5P6qw","./AccordionCollapse":"7EQRw","./AccordionButton":"k5nOg","./Alert":"d0bvJ","./Anchor":"j0oK8","./Badge":"jCDqd","./Breadcrumb":"9ph0G","./BreadcrumbItem":"9JOlD","./Button":"9CzHT","./ButtonGroup":"hMSWw","./ButtonToolbar":"jytOm","./Card":"MoOk8","./CardColumns":"kZGsF","./CardImg":"5GKOF","./CardGroup":"lNZc4","./Carousel":"kof2d","./CarouselItem":"jWDpa","./CloseButton":"9rnf2","./Col":"fbam0","./Collapse":"9TRx8","./Dropdown":"j2597","./DropdownButton":"bNmu3","./Fade":"kCN9h","./Form":"5ykgY","./FormControl":"4wb7H","./FormCheck":"27gi5","./FormFloating":"4BzVm","./FloatingLabel":"27LBy","./FormGroup":"gWNri","./FormLabel":"5QGBM","./FormText":"5jn4s","./FormSelect":"39R9R","./Container":"2PRIq","./Image":"kKVYG","./Figure":"gPWXb","./InputGroup":"h6gtx","./ListGroup":"e5zgD","./ListGroupItem":"gx9ma","./Modal":"kvv9u","./ModalBody":"hKlZJ","./ModalDialog":"cS9dq","./ModalFooter":"675SE","./ModalTitle":"1MLbF","./Nav":"io07g","./Navbar":"eYZQl","./NavbarBrand":"eepuz","./NavDropdown":"6IluF","./NavItem":"40AB8","./NavLink":"2vX5C","./Offcanvas":"1lxtI","./OffcanvasHeader":"6rtnc","./OffcanvasTitle":"kKoeP","./OffcanvasBody":"bMhVV","./Overlay":"8H4ea","./OverlayTrigger":"7Crz8","./PageItem":"4A0az","./Pagination":"4wTX8","./Popover":"gxbm9","./PopoverHeader":"1A9Zc","./PopoverBody":"9SRTa","./ProgressBar":"jvTqc","./Ratio":"j0n2q","./Row":"c0x1x","./Spinner":"jgNtX","./SplitButton":"hHdeZ","./Tab":"9Li7R","./TabContainer":"laNYg","./TabContent":"bNx28","./Table":"1T2Al","./TabPane":"cvApa","./Tabs":"2Uik6","./ThemeProvider":"eeqfi","./Toast":"lktoE","./ToastBody":"gOOuU","./ToastHeader":"h9RGw","./ToastContainer":"dk576","./ToggleButton":"lgOUD","./ToggleButtonGroup":"a2vfU","./Tooltip":"d4uW3","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"4CUf9":[function(require,module,exports) {
+},{"./Accordion":"4CUf9","./AccordionContext":"5P6qw","./AccordionCollapse":"7EQRw","./AccordionButton":"k5nOg","./Alert":"d0bvJ","./Anchor":"j0oK8","./Badge":"jCDqd","./Breadcrumb":"9ph0G","./BreadcrumbItem":"9JOlD","./Button":"9CzHT","./ButtonGroup":"hMSWw","./ButtonToolbar":"jytOm","./Card":"MoOk8","./CardColumns":"kZGsF","./CardImg":"5GKOF","./CardGroup":"lNZc4","./Carousel":"kof2d","./CarouselItem":"jWDpa","./CloseButton":"9rnf2","./Col":"fbam0","./Collapse":"9TRx8","./Dropdown":"j2597","./DropdownButton":"bNmu3","./Fade":"kCN9h","./Form":"5ykgY","./FormControl":"4wb7H","./FormCheck":"27gi5","./FormFloating":"4BzVm","./FloatingLabel":"27LBy","./FormGroup":"gWNri","./FormLabel":"5QGBM","./FormText":"5jn4s","./FormSelect":"39R9R","./Container":"2PRIq","./Image":"kKVYG","./Figure":"gPWXb","./InputGroup":"h6gtx","./ListGroup":"e5zgD","./ListGroupItem":"gx9ma","./Modal":"kvv9u","./ModalBody":"hKlZJ","./ModalDialog":"cS9dq","./ModalFooter":"675SE","./ModalTitle":"1MLbF","./Nav":"io07g","./Navbar":"eYZQl","./NavbarBrand":"eepuz","./NavDropdown":"6IluF","./NavItem":"40AB8","./NavLink":"2vX5C","./Offcanvas":"1lxtI","./OffcanvasHeader":"6rtnc","./OffcanvasTitle":"kKoeP","./OffcanvasBody":"bMhVV","./Overlay":"8H4ea","./OverlayTrigger":"7Crz8","./PageItem":"4A0az","./Pagination":"4wTX8","./Placeholder":"kpIOE","./PlaceholderButton":"fBeoH","./Popover":"gxbm9","./PopoverHeader":"1A9Zc","./PopoverBody":"9SRTa","./ProgressBar":"jvTqc","./Ratio":"j0n2q","./Row":"c0x1x","./Spinner":"jgNtX","./SplitButton":"hHdeZ","./Tab":"9Li7R","./TabContainer":"laNYg","./TabContent":"bNx28","./Table":"1T2Al","./TabPane":"cvApa","./Tabs":"2Uik6","./ThemeProvider":"eeqfi","./Toast":"lktoE","./ToastBody":"gOOuU","./ToastHeader":"h9RGw","./ToastContainer":"dk576","./ToggleButton":"lgOUD","./ToggleButtonGroup":"a2vfU","./Tooltip":"d4uW3","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"4CUf9":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -23776,7 +23784,7 @@ var _collapseDefault = parcelHelpers.interopDefault(_collapse);
 var _accordionContext = require("./AccordionContext");
 var _accordionContextDefault = parcelHelpers.interopDefault(_accordionContext);
 var _jsxRuntime = require("react/jsx-runtime");
-const AccordionCollapse = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , children , eventKey , ...props }, ref)=>{
+const AccordionCollapse = /*#__PURE__*/ _react.forwardRef(({ as: Component = 'div' , bsPrefix , className , children , eventKey , ...props }, ref)=>{
     const { activeEventKey  } = _react.useContext(_accordionContextDefault.default);
     bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'accordion-collapse');
     return(/*#__PURE__*/ _jsxRuntime.jsx(_collapseDefault.default, {
@@ -23784,7 +23792,7 @@ const AccordionCollapse = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , classNam
         in: activeEventKey === eventKey,
         ...props,
         className: _classnamesDefault.default(className, bsPrefix),
-        children: /*#__PURE__*/ _jsxRuntime.jsx("div", {
+        children: /*#__PURE__*/ _jsxRuntime.jsx(Component, {
             children: _react.Children.only(children)
         })
     }));
@@ -27316,6 +27324,8 @@ var _react = require("react");
 },{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"fbam0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useCol", ()=>useCol
+);
 var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
@@ -27329,8 +27339,8 @@ const DEVICE_SIZES = [
     'sm',
     'xs'
 ];
-const Col = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , as: Component = 'div' , ...props }, ref)=>{
-    const prefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
+function useCol({ as , bsPrefix , className , ...props }) {
+    bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'col');
     const spans = [];
     const classes = [];
     DEVICE_SIZES.forEach((brkPoint)=>{
@@ -27342,15 +27352,28 @@ const Col = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , as: Compon
         if (typeof propValue === 'object' && propValue != null) ({ span =true , offset , order  } = propValue);
         else span = propValue;
         const infix = brkPoint !== 'xs' ? `-${brkPoint}` : '';
-        if (span) spans.push(span === true ? `${prefix}${infix}` : `${prefix}${infix}-${span}`);
+        if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
         if (order != null) classes.push(`order${infix}-${order}`);
         if (offset != null) classes.push(`offset${infix}-${offset}`);
     });
-    if (!spans.length) spans.push(prefix); // plain 'col'
+    return [
+        {
+            ...props,
+            className: _classnamesDefault.default(className, ...classes, ...spans)
+        },
+        {
+            as,
+            bsPrefix,
+            spans
+        }
+    ];
+}
+const Col = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+    const [{ className , ...colProps }, { as: Component = 'div' , bsPrefix , spans  }] = useCol(props);
     return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
-        ...props,
+        ...colProps,
         ref: ref,
-        className: _classnamesDefault.default(className, ...spans, ...classes)
+        className: _classnamesDefault.default(className, !spans.length && bsPrefix)
     }));
 });
 Col.displayName = 'Col';
@@ -28351,9 +28374,11 @@ function getBoundingClientRect(element, includeScale) {
     var scaleX = 1;
     var scaleY = 1;
     if (_instanceOfJs.isHTMLElement(element) && includeScale) {
+        var offsetHeight = element.offsetHeight;
+        var offsetWidth = element.offsetWidth; // Do not attempt to divide by 0, otherwise we get `Infinity` as scale
         // Fallback to 1 in case both values are `0`
-        scaleX = rect.width / element.offsetWidth || 1;
-        scaleY = rect.height / element.offsetHeight || 1;
+        if (offsetWidth > 0) scaleX = rect.width / offsetWidth || 1;
+        if (offsetHeight > 0) scaleY = rect.height / offsetHeight || 1;
     }
     return {
         width: round(rect.width / scaleX),
@@ -28623,6 +28648,8 @@ var _getComputedStyleJs = require("../dom-utils/getComputedStyle.js");
 var _getComputedStyleJsDefault = parcelHelpers.interopDefault(_getComputedStyleJs);
 var _getBasePlacementJs = require("../utils/getBasePlacement.js");
 var _getBasePlacementJsDefault = parcelHelpers.interopDefault(_getBasePlacementJs);
+var _getVariationJs = require("../utils/getVariation.js");
+var _getVariationJsDefault = parcelHelpers.interopDefault(_getVariationJs);
 var _mathJs = require("../utils/math.js"); // eslint-disable-next-line import/no-unused-modules
 var unsetSides = {
     top: 'auto',
@@ -28643,7 +28670,7 @@ function roundOffsetsByDPR(_ref) {
 }
 function mapToStyles(_ref2) {
     var _Object$assign2;
-    var popper = _ref2.popper, popperRect = _ref2.popperRect, placement = _ref2.placement, offsets = _ref2.offsets, position = _ref2.position, gpuAcceleration = _ref2.gpuAcceleration, adaptive = _ref2.adaptive, roundOffsets = _ref2.roundOffsets;
+    var popper = _ref2.popper, popperRect = _ref2.popperRect, placement = _ref2.placement, variation = _ref2.variation, offsets = _ref2.offsets, position = _ref2.position, gpuAcceleration = _ref2.gpuAcceleration, adaptive = _ref2.adaptive, roundOffsets = _ref2.roundOffsets;
     var _ref3 = roundOffsets === true ? roundOffsetsByDPR(offsets) : typeof roundOffsets === 'function' ? roundOffsets(offsets) : offsets, _ref3$x = _ref3.x, x = _ref3$x === void 0 ? 0 : _ref3$x, _ref3$y = _ref3.y, y = _ref3$y === void 0 ? 0 : _ref3$y;
     var hasX = offsets.hasOwnProperty('x');
     var hasY = offsets.hasOwnProperty('y');
@@ -28656,17 +28683,17 @@ function mapToStyles(_ref2) {
         var widthProp = 'clientWidth';
         if (offsetParent === _getWindowJsDefault.default(popper)) {
             offsetParent = _getDocumentElementJsDefault.default(popper);
-            if (_getComputedStyleJsDefault.default(offsetParent).position !== 'static') {
+            if (_getComputedStyleJsDefault.default(offsetParent).position !== 'static' && position === 'absolute') {
                 heightProp = 'scrollHeight';
                 widthProp = 'scrollWidth';
             }
         } // $FlowFixMe[incompatible-cast]: force type refinement, we compare offsetParent with window above, but Flow doesn't detect it
-        if (placement === _enumsJs.top) {
+        if (placement === _enumsJs.top || (placement === _enumsJs.left || placement === _enumsJs.right) && variation === _enumsJs.end) {
             sideY = _enumsJs.bottom; // $FlowFixMe[prop-missing]
             y -= offsetParent[heightProp] - popperRect.height;
             y *= gpuAcceleration ? 1 : -1;
         }
-        if (placement === _enumsJs.left) {
+        if (placement === _enumsJs.left || (placement === _enumsJs.top || placement === _enumsJs.bottom) && variation === _enumsJs.end) {
             sideX = _enumsJs.right; // $FlowFixMe[prop-missing]
             x -= offsetParent[widthProp] - popperRect.width;
             x *= gpuAcceleration ? 1 : -1;
@@ -28679,7 +28706,7 @@ function mapToStyles(_ref2) {
         var _Object$assign;
         return Object.assign({
         }, commonStyles, (_Object$assign = {
-        }, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) < 2 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+        }, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
     }
     return Object.assign({
     }, commonStyles, (_Object$assign2 = {
@@ -28711,6 +28738,7 @@ function computeStyles(_ref4) {
     ].join(' '));
     var commonStyles = {
         placement: _getBasePlacementJsDefault.default(state.placement),
+        variation: _getVariationJsDefault.default(state.placement),
         popper: state.elements.popper,
         popperRect: state.rects.popper,
         gpuAcceleration: gpuAcceleration
@@ -28745,7 +28773,15 @@ exports.default = {
     }
 };
 
-},{"../enums.js":"kBo2A","../dom-utils/getOffsetParent.js":"h282o","../dom-utils/getWindow.js":"MkPcb","../dom-utils/getDocumentElement.js":"jaH6y","../dom-utils/getComputedStyle.js":"cn2q5","../utils/getBasePlacement.js":"uyzYw","../utils/math.js":"gyDDZ","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"gK2qK":[function(require,module,exports) {
+},{"../enums.js":"kBo2A","../dom-utils/getOffsetParent.js":"h282o","../dom-utils/getWindow.js":"MkPcb","../dom-utils/getDocumentElement.js":"jaH6y","../dom-utils/getComputedStyle.js":"cn2q5","../utils/getBasePlacement.js":"uyzYw","../utils/getVariation.js":"e7Opv","../utils/math.js":"gyDDZ","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"e7Opv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function getVariation(placement) {
+    return placement.split('-')[1];
+}
+exports.default = getVariation;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"gK2qK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getWindowJs = require("../dom-utils/getWindow.js"); // eslint-disable-next-line import/no-unused-modules
@@ -28932,12 +28968,12 @@ exports.default = getOppositeVariationPlacement;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"8uw8g":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _getBoundingClientRectJs = require("../dom-utils/getBoundingClientRect.js");
-var _getBoundingClientRectJsDefault = parcelHelpers.interopDefault(_getBoundingClientRectJs);
 var _getClippingRectJs = require("../dom-utils/getClippingRect.js");
 var _getClippingRectJsDefault = parcelHelpers.interopDefault(_getClippingRectJs);
 var _getDocumentElementJs = require("../dom-utils/getDocumentElement.js");
 var _getDocumentElementJsDefault = parcelHelpers.interopDefault(_getDocumentElementJs);
+var _getBoundingClientRectJs = require("../dom-utils/getBoundingClientRect.js");
+var _getBoundingClientRectJsDefault = parcelHelpers.interopDefault(_getBoundingClientRectJs);
 var _computeOffsetsJs = require("./computeOffsets.js");
 var _computeOffsetsJsDefault = parcelHelpers.interopDefault(_computeOffsetsJs);
 var _rectToClientRectJs = require("./rectToClientRect.js");
@@ -28954,11 +28990,10 @@ function detectOverflow(state, options) {
     var _options = options, _options$placement = _options.placement, placement = _options$placement === void 0 ? state.placement : _options$placement, _options$boundary = _options.boundary, boundary = _options$boundary === void 0 ? _enumsJs.clippingParents : _options$boundary, _options$rootBoundary = _options.rootBoundary, rootBoundary = _options$rootBoundary === void 0 ? _enumsJs.viewport : _options$rootBoundary, _options$elementConte = _options.elementContext, elementContext = _options$elementConte === void 0 ? _enumsJs.popper : _options$elementConte, _options$altBoundary = _options.altBoundary, altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary, _options$padding = _options.padding, padding = _options$padding === void 0 ? 0 : _options$padding;
     var paddingObject = _mergePaddingObjectJsDefault.default(typeof padding !== 'number' ? padding : _expandToHashMapJsDefault.default(padding, _enumsJs.basePlacements));
     var altContext = elementContext === _enumsJs.popper ? _enumsJs.reference : _enumsJs.popper;
-    var referenceElement = state.elements.reference;
     var popperRect = state.rects.popper;
     var element = state.elements[altBoundary ? altContext : elementContext];
     var clippingClientRect = _getClippingRectJsDefault.default(_instanceOfJs.isElement(element) ? element : element.contextElement || _getDocumentElementJsDefault.default(state.elements.popper), boundary, rootBoundary);
-    var referenceClientRect = _getBoundingClientRectJsDefault.default(referenceElement);
+    var referenceClientRect = _getBoundingClientRectJsDefault.default(state.elements.reference);
     var popperOffsets = _computeOffsetsJsDefault.default({
         reference: referenceClientRect,
         element: popperRect,
@@ -28988,7 +29023,7 @@ function detectOverflow(state, options) {
 }
 exports.default = detectOverflow;
 
-},{"../dom-utils/getBoundingClientRect.js":"a0UQf","../dom-utils/getClippingRect.js":"7EeZI","../dom-utils/getDocumentElement.js":"jaH6y","./computeOffsets.js":"wx3b2","./rectToClientRect.js":"3oP12","../enums.js":"kBo2A","../dom-utils/instanceOf.js":"5XVaZ","./mergePaddingObject.js":"kGOSi","./expandToHashMap.js":"gAvCE","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"7EeZI":[function(require,module,exports) {
+},{"../dom-utils/getClippingRect.js":"7EeZI","../dom-utils/getDocumentElement.js":"jaH6y","../dom-utils/getBoundingClientRect.js":"a0UQf","./computeOffsets.js":"wx3b2","./rectToClientRect.js":"3oP12","../enums.js":"kBo2A","../dom-utils/instanceOf.js":"5XVaZ","./mergePaddingObject.js":"kGOSi","./expandToHashMap.js":"gAvCE","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"7EeZI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _enumsJs = require("../enums.js");
@@ -29319,15 +29354,7 @@ function computeOffsets(_ref) {
 }
 exports.default = computeOffsets;
 
-},{"./getBasePlacement.js":"uyzYw","./getVariation.js":"e7Opv","./getMainAxisFromPlacement.js":"3RRs0","../enums.js":"kBo2A","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"e7Opv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function getVariation(placement) {
-    return placement.split('-')[1];
-}
-exports.default = getVariation;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"5gagL":[function(require,module,exports) {
+},{"./getBasePlacement.js":"uyzYw","./getVariation.js":"e7Opv","./getMainAxisFromPlacement.js":"3RRs0","../enums.js":"kBo2A","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"5gagL":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _getVariationJs = require("./getVariation.js");
@@ -29716,7 +29743,8 @@ function popperGenerator(generatorOptions) {
         var isDestroyed = false;
         var instance = {
             state: state,
-            setOptions: function setOptions(options1) {
+            setOptions: function setOptions(setOptionsAction) {
+                var options1 = typeof setOptionsAction === 'function' ? setOptionsAction(state.options) : setOptionsAction;
                 cleanupModifierEffects();
                 state.options = Object.assign({
                 }, defaultOptions, state.options, options1);
@@ -30022,13 +30050,17 @@ var VALID_PROPERTIES = [
 ];
 function validateModifiers(modifiers) {
     modifiers.forEach(function(modifier) {
-        Object.keys(modifier).forEach(function(key) {
+        [].concat(Object.keys(modifier), VALID_PROPERTIES) // IE11-compatible replacement for `new Set(iterable)`
+        .filter(function(value, index, self) {
+            return self.indexOf(value) === index;
+        }).forEach(function(key) {
             switch(key){
                 case 'name':
                     if (typeof modifier.name !== 'string') console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, String(modifier.name), '"name"', '"string"', "\"" + String(modifier.name) + "\""));
                     break;
                 case 'enabled':
                     if (typeof modifier.enabled !== 'boolean') console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"enabled"', '"boolean"', "\"" + String(modifier.enabled) + "\""));
+                    break;
                 case 'phase':
                     if (_enumsJs.modifierPhases.indexOf(modifier.phase) < 0) console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"phase"', "either " + _enumsJs.modifierPhases.join(', '), "\"" + String(modifier.phase) + "\""));
                     break;
@@ -30036,10 +30068,10 @@ function validateModifiers(modifiers) {
                     if (typeof modifier.fn !== 'function') console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"fn"', '"function"', "\"" + String(modifier.fn) + "\""));
                     break;
                 case 'effect':
-                    if (typeof modifier.effect !== 'function') console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"effect"', '"function"', "\"" + String(modifier.fn) + "\""));
+                    if (modifier.effect != null && typeof modifier.effect !== 'function') console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"effect"', '"function"', "\"" + String(modifier.fn) + "\""));
                     break;
                 case 'requires':
-                    if (!Array.isArray(modifier.requires)) console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"requires"', '"array"', "\"" + String(modifier.requires) + "\""));
+                    if (modifier.requires != null && !Array.isArray(modifier.requires)) console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"requires"', '"array"', "\"" + String(modifier.requires) + "\""));
                     break;
                 case 'requiresIfExists':
                     if (!Array.isArray(modifier.requiresIfExists)) console.error(_formatJsDefault.default(INVALID_MODIFIER_ERROR, modifier.name, '"requiresIfExists"', '"array"', "\"" + String(modifier.requiresIfExists) + "\""));
@@ -30429,15 +30461,16 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 // will reset this to zero for consistency between server and client, so in the
 // SSR case multiple copies of React Aria is not supported.
 const $f01a183cc7bdff77849e49ad26eb904$var$defaultContext = {
-    prefix: Math.round(Math.random() * 10000000000),
+    prefix: String(Math.round(Math.random() * 10000000000)),
     current: 0
 };
 const $f01a183cc7bdff77849e49ad26eb904$var$SSRContext = /*#__PURE__*/ _reactDefault.default.createContext($f01a183cc7bdff77849e49ad26eb904$var$defaultContext);
 function SSRProvider(props) {
     let cur = _react.useContext($f01a183cc7bdff77849e49ad26eb904$var$SSRContext);
     let value = _react.useMemo(()=>({
-            // If this is the first SSRProvider, set to zero, otherwise increment.
-            prefix: cur === $f01a183cc7bdff77849e49ad26eb904$var$defaultContext ? 0 : ++cur.prefix,
+            // If this is the first SSRProvider, start with an empty string prefix, otherwise
+            // append and increment the counter.
+            prefix: cur === $f01a183cc7bdff77849e49ad26eb904$var$defaultContext ? '' : cur.prefix + "-" + ++cur.current,
             current: 0
         })
     , [
@@ -30452,7 +30485,7 @@ function useSSRSafeId(defaultId) {
     let ctx = _react.useContext($f01a183cc7bdff77849e49ad26eb904$var$SSRContext); // If we are rendering in a non-DOM environment, and there's no SSRProvider,
     // provide a warning to hint to the developer to add one.
     if (ctx === $f01a183cc7bdff77849e49ad26eb904$var$defaultContext && !$f01a183cc7bdff77849e49ad26eb904$var$canUseDOM) console.warn('When server rendering, you must wrap your application in an <SSRProvider> to ensure consistent ids are generated between the client and server.');
-    return _react.useMemo(()=>defaultId || "react-aria-" + ctx.prefix + "-" + ++ctx.current
+    return _react.useMemo(()=>defaultId || "react-aria" + ctx.prefix + "-" + ++ctx.current
     , [
         defaultId
     ]);
@@ -30641,6 +30674,8 @@ var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
 var _dropdownMenu = require("@restart/ui/DropdownMenu");
+var _useIsomorphicEffect = require("@restart/hooks/useIsomorphicEffect");
+var _useIsomorphicEffectDefault = parcelHelpers.interopDefault(_useIsomorphicEffect);
 var _useMergedRefs = require("@restart/hooks/useMergedRefs");
 var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
 var _warning = require("warning");
@@ -30710,6 +30745,13 @@ as: Component = 'div' , popperConfig , variant , ...props }, ref)=>{
         placement
     });
     menuProps.ref = _useMergedRefsDefault.default(_useWrappedRefWithWarningDefault.default(ref, 'DropdownMenu'), menuProps.ref);
+    _useIsomorphicEffectDefault.default(()=>{
+        // Popper's initial position for the menu is incorrect when
+        // renderOnMount=true. Need to call update() to correct it.
+        if (show) popper == null || popper.update();
+    }, [
+        show
+    ]);
     if (!hasShown && !renderOnMount && !isInputGroup) return null; // For custom components provide additional, non-DOM, props;
     if (typeof Component !== 'string') {
         menuProps.show = show;
@@ -30742,7 +30784,16 @@ DropdownMenu.displayName = 'DropdownMenu';
 DropdownMenu.defaultProps = defaultProps;
 exports.default = DropdownMenu;
 
-},{"classnames":"bOXOh","react":"6TuXu","@restart/ui/DropdownMenu":"kh94E","@restart/hooks/useMergedRefs":"2sLYB","warning":"dbfUS","./DropdownContext":"gAQPN","./InputGroupContext":"iHYSU","./NavbarContext":"iFmid","./ThemeProvider":"eeqfi","./useWrappedRefWithWarning":"amiV7","./types":"ggmd0","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"iHYSU":[function(require,module,exports) {
+},{"classnames":"bOXOh","react":"6TuXu","@restart/ui/DropdownMenu":"kh94E","@restart/hooks/useIsomorphicEffect":"3psbV","@restart/hooks/useMergedRefs":"2sLYB","warning":"dbfUS","./DropdownContext":"gAQPN","./InputGroupContext":"iHYSU","./NavbarContext":"iFmid","./ThemeProvider":"eeqfi","./useWrappedRefWithWarning":"amiV7","./types":"ggmd0","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"3psbV":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var global = arguments[3];
+var isReactNative = typeof global !== 'undefined' && global.navigator && global.navigator.product === 'ReactNative';
+var isDOM = typeof document !== 'undefined';
+exports.default = isDOM || isReactNative ? _react.useLayoutEffect : _react.useEffect;
+
+},{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"iHYSU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -33276,7 +33327,6 @@ const Offcanvas = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , chil
     const modalManager = _react.useRef();
     const handleHide = _useEventCallbackDefault.default(onHide);
     bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'offcanvas');
-    const modalBsPrefix = _themeProvider.useBootstrapPrefix(undefined, 'modal');
     const modalContext = _react.useMemo(()=>({
             onHide: handleHide
         })
@@ -33305,11 +33355,11 @@ const Offcanvas = /*#__PURE__*/ _react.forwardRef(({ bsPrefix , className , chil
     };
     const renderBackdrop = _react.useCallback((backdropProps)=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
             ...backdropProps,
-            className: _classnamesDefault.default(`${modalBsPrefix}-backdrop`, backdropClassName)
+            className: _classnamesDefault.default(`${bsPrefix}-backdrop`, backdropClassName)
         })
     , [
         backdropClassName,
-        modalBsPrefix
+        bsPrefix
     ]);
     const renderDialog = (dialogProps)=>/*#__PURE__*/ _jsxRuntime.jsx("div", {
             role: "dialog",
@@ -33989,7 +34039,66 @@ exports.default = Object.assign(Pagination, {
     Last: _pageItem.Last
 });
 
-},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./PageItem":"4A0az","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"jvTqc":[function(require,module,exports) {
+},{"classnames":"bOXOh","react":"6TuXu","./ThemeProvider":"eeqfi","./PageItem":"4A0az","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"kpIOE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _usePlaceholder = require("./usePlaceholder");
+var _usePlaceholderDefault = parcelHelpers.interopDefault(_usePlaceholder);
+var _placeholderButton = require("./PlaceholderButton");
+var _placeholderButtonDefault = parcelHelpers.interopDefault(_placeholderButton);
+var _jsxRuntime = require("react/jsx-runtime");
+const Placeholder = /*#__PURE__*/ _react.forwardRef(({ as: Component = 'span' , ...props }, ref)=>{
+    const placeholderProps = _usePlaceholderDefault.default(props);
+    return(/*#__PURE__*/ _jsxRuntime.jsx(Component, {
+        ...placeholderProps,
+        ref: ref
+    }));
+});
+Placeholder.displayName = 'Placeholder';
+exports.default = Object.assign(Placeholder, {
+    Button: _placeholderButtonDefault.default
+});
+
+},{"react":"6TuXu","./usePlaceholder":"bBazs","./PlaceholderButton":"fBeoH","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"bBazs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _themeProvider = require("./ThemeProvider");
+var _col = require("./Col");
+function usePlaceholder({ animation , bg , bsPrefix , size , ...props }) {
+    bsPrefix = _themeProvider.useBootstrapPrefix(bsPrefix, 'placeholder');
+    const [{ className , ...colProps }] = _col.useCol(props);
+    return {
+        ...colProps,
+        className: _classnamesDefault.default(className, animation ? `${bsPrefix}-${animation}` : bsPrefix, size && `${bsPrefix}-${size}`, bg && `bg-${bg}`)
+    };
+}
+exports.default = usePlaceholder;
+
+},{"classnames":"bOXOh","./ThemeProvider":"eeqfi","./Col":"fbam0","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"fBeoH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _button = require("./Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _usePlaceholder = require("./usePlaceholder");
+var _usePlaceholderDefault = parcelHelpers.interopDefault(_usePlaceholder);
+var _jsxRuntime = require("react/jsx-runtime");
+const PlaceholderButton = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+    const placeholderProps = _usePlaceholderDefault.default(props);
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+        ...placeholderProps,
+        ref: ref,
+        disabled: true,
+        tabIndex: -1
+    }));
+});
+PlaceholderButton.displayName = 'PlaceholderButton';
+exports.default = PlaceholderButton;
+
+},{"react":"6TuXu","./Button":"9CzHT","./usePlaceholder":"bBazs","react/jsx-runtime":"8xIwr","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"jvTqc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -35561,6 +35670,18 @@ exports.default = _defineProperty;
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"2L0if":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "batch", ()=>_reactBatchedUpdates.unstable_batchedUpdates
+);
+var _reactBatchedUpdates = require("./utils/reactBatchedUpdates");
+var _batch = require("./utils/batch"); // Enable batched updates in our subscriptions for use
+var _exports = require("./exports");
+parcelHelpers.exportAll(_exports, exports);
+// with standard React renderers (ReactDOM, React Native)
+_batch.setBatch(_reactBatchedUpdates.unstable_batchedUpdates);
+
+},{"./exports":"amFLd","./utils/reactBatchedUpdates":"kaP8a","./utils/batch":"2g3ZY","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"amFLd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Provider", ()=>_providerDefault.default
 );
 parcelHelpers.export(exports, "connectAdvanced", ()=>_connectAdvancedDefault.default
@@ -35568,8 +35689,6 @@ parcelHelpers.export(exports, "connectAdvanced", ()=>_connectAdvancedDefault.def
 parcelHelpers.export(exports, "ReactReduxContext", ()=>_context.ReactReduxContext
 );
 parcelHelpers.export(exports, "connect", ()=>_connectDefault.default
-);
-parcelHelpers.export(exports, "batch", ()=>_reactBatchedUpdates.unstable_batchedUpdates
 );
 parcelHelpers.export(exports, "useDispatch", ()=>_useDispatch.useDispatch
 );
@@ -35595,13 +35714,10 @@ var _connectDefault = parcelHelpers.interopDefault(_connect);
 var _useDispatch = require("./hooks/useDispatch");
 var _useSelector = require("./hooks/useSelector");
 var _useStore = require("./hooks/useStore");
-var _batch = require("./utils/batch");
-var _reactBatchedUpdates = require("./utils/reactBatchedUpdates");
 var _shallowEqual = require("./utils/shallowEqual");
 var _shallowEqualDefault = parcelHelpers.interopDefault(_shallowEqual);
-_batch.setBatch(_reactBatchedUpdates.unstable_batchedUpdates);
 
-},{"./components/Provider":"efEZ1","./components/connectAdvanced":"5cRBV","./components/Context":"gT1Jg","./connect/connect":"9zpXe","./hooks/useDispatch":"2CDvn","./hooks/useSelector":"27k1i","./hooks/useStore":"fDPAT","./utils/batch":"2g3ZY","./utils/reactBatchedUpdates":"kaP8a","./utils/shallowEqual":"leLul","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"efEZ1":[function(require,module,exports) {
+},{"./components/Provider":"efEZ1","./components/connectAdvanced":"5cRBV","./components/Context":"gT1Jg","./connect/connect":"9zpXe","./hooks/useDispatch":"2CDvn","./hooks/useSelector":"27k1i","./hooks/useStore":"fDPAT","./utils/shallowEqual":"leLul","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"efEZ1":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -35610,12 +35726,11 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _context = require("./Context");
 var _subscription = require("../utils/Subscription");
-var _subscriptionDefault = parcelHelpers.interopDefault(_subscription);
 var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
 function Provider(_ref) {
     var store = _ref.store, context = _ref.context, children = _ref.children;
     var contextValue = _react.useMemo(function() {
-        var subscription = new _subscriptionDefault.default(store);
+        var subscription = _subscription.createSubscription(store);
         subscription.onStateChange = subscription.notifyNestedSubs;
         return {
             store: store,
@@ -35671,15 +35786,11 @@ exports.default = ReactReduxContext;
 },{"react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"6rtcC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>Subscription
+parcelHelpers.export(exports, "createSubscription", ()=>createSubscription
 );
 var _batch = require("./batch"); // encapsulates the subscription logic for connecting a component to the redux store, as
 // well as nesting subscriptions of descendant components, so that we can ensure the
 // ancestor components re-render before descendants
-var nullListeners = {
-    notify: function notify() {
-    }
-};
 function createListenerCollection() {
     var batch = _batch.getBatch();
     var first = null;
@@ -35727,44 +35838,56 @@ function createListenerCollection() {
         }
     };
 }
-var Subscription = /*#__PURE__*/ function() {
-    function Subscription1(store, parentSub) {
-        this.store = store;
-        this.parentSub = parentSub;
-        this.unsubscribe = null;
-        this.listeners = nullListeners;
-        this.handleChangeWrapper = this.handleChangeWrapper.bind(this);
+var nullListeners = {
+    notify: function notify() {
+    },
+    get: function get() {
+        return [];
     }
-    var _proto = Subscription1.prototype;
-    _proto.addNestedSub = function addNestedSub(listener) {
-        this.trySubscribe();
-        return this.listeners.subscribe(listener);
-    };
-    _proto.notifyNestedSubs = function notifyNestedSubs() {
-        this.listeners.notify();
-    };
-    _proto.handleChangeWrapper = function handleChangeWrapper() {
-        if (this.onStateChange) this.onStateChange();
-    };
-    _proto.isSubscribed = function isSubscribed() {
-        return Boolean(this.unsubscribe);
-    };
-    _proto.trySubscribe = function trySubscribe() {
-        if (!this.unsubscribe) {
-            this.unsubscribe = this.parentSub ? this.parentSub.addNestedSub(this.handleChangeWrapper) : this.store.subscribe(this.handleChangeWrapper);
-            this.listeners = createListenerCollection();
+};
+function createSubscription(store, parentSub) {
+    var unsubscribe;
+    var listeners = nullListeners;
+    function addNestedSub(listener) {
+        trySubscribe();
+        return listeners.subscribe(listener);
+    }
+    function notifyNestedSubs() {
+        listeners.notify();
+    }
+    function handleChangeWrapper() {
+        if (subscription.onStateChange) subscription.onStateChange();
+    }
+    function isSubscribed() {
+        return Boolean(unsubscribe);
+    }
+    function trySubscribe() {
+        if (!unsubscribe) {
+            unsubscribe = parentSub ? parentSub.addNestedSub(handleChangeWrapper) : store.subscribe(handleChangeWrapper);
+            listeners = createListenerCollection();
+        }
+    }
+    function tryUnsubscribe() {
+        if (unsubscribe) {
+            unsubscribe();
+            unsubscribe = undefined;
+            listeners.clear();
+            listeners = nullListeners;
+        }
+    }
+    var subscription = {
+        addNestedSub: addNestedSub,
+        notifyNestedSubs: notifyNestedSubs,
+        handleChangeWrapper: handleChangeWrapper,
+        isSubscribed: isSubscribed,
+        trySubscribe: trySubscribe,
+        tryUnsubscribe: tryUnsubscribe,
+        getListeners: function getListeners() {
+            return listeners;
         }
     };
-    _proto.tryUnsubscribe = function tryUnsubscribe() {
-        if (this.unsubscribe) {
-            this.unsubscribe();
-            this.unsubscribe = null;
-            this.listeners.clear();
-            this.listeners = nullListeners;
-        }
-    };
-    return Subscription1;
-}();
+    return subscription;
+}
 
 },{"./batch":"2g3ZY","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"2g3ZY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -35806,9 +35929,20 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactIs = require("react-is");
 var _subscription = require("../utils/Subscription");
-var _subscriptionDefault = parcelHelpers.interopDefault(_subscription);
 var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
 var _context = require("./Context"); // Define some constant arrays just to avoid re-creating these
+var _excluded = [
+    "getDisplayName",
+    "methodName",
+    "renderCountProp",
+    "shouldHandleStateChanges",
+    "storeKey",
+    "withRef",
+    "forwardRef",
+    "context"
+], _excluded2 = [
+    "reactReduxForwardedRef"
+];
 var EMPTY_ARRAY = [];
 var NO_SUBSCRIPTION_ARRAY = [
     null,
@@ -35923,16 +36057,7 @@ function connectAdvanced(/*
     };
     var _ref2 = _ref, _ref2$getDisplayName = _ref2.getDisplayName, getDisplayName = _ref2$getDisplayName === void 0 ? function(name) {
         return "ConnectAdvanced(" + name + ")";
-    } : _ref2$getDisplayName, _ref2$methodName = _ref2.methodName, methodName = _ref2$methodName === void 0 ? 'connectAdvanced' : _ref2$methodName, _ref2$renderCountProp = _ref2.renderCountProp, renderCountProp = _ref2$renderCountProp === void 0 ? undefined : _ref2$renderCountProp, _ref2$shouldHandleSta = _ref2.shouldHandleStateChanges, shouldHandleStateChanges = _ref2$shouldHandleSta === void 0 ? true : _ref2$shouldHandleSta, _ref2$storeKey = _ref2.storeKey, storeKey = _ref2$storeKey === void 0 ? 'store' : _ref2$storeKey, _ref2$withRef = _ref2.withRef, withRef = _ref2$withRef === void 0 ? false : _ref2$withRef, _ref2$forwardRef = _ref2.forwardRef, forwardRef = _ref2$forwardRef === void 0 ? false : _ref2$forwardRef, _ref2$context = _ref2.context, context = _ref2$context === void 0 ? _context.ReactReduxContext : _ref2$context, connectOptions = _objectWithoutPropertiesLooseDefault.default(_ref2, [
-        "getDisplayName",
-        "methodName",
-        "renderCountProp",
-        "shouldHandleStateChanges",
-        "storeKey",
-        "withRef",
-        "forwardRef",
-        "context"
-    ]);
+    } : _ref2$getDisplayName, _ref2$methodName = _ref2.methodName, methodName = _ref2$methodName === void 0 ? 'connectAdvanced' : _ref2$methodName, _ref2$renderCountProp = _ref2.renderCountProp, renderCountProp = _ref2$renderCountProp === void 0 ? undefined : _ref2$renderCountProp, _ref2$shouldHandleSta = _ref2.shouldHandleStateChanges, shouldHandleStateChanges = _ref2$shouldHandleSta === void 0 ? true : _ref2$shouldHandleSta, _ref2$storeKey = _ref2.storeKey, storeKey = _ref2$storeKey === void 0 ? 'store' : _ref2$storeKey, _ref2$withRef = _ref2.withRef, withRef = _ref2$withRef === void 0 ? false : _ref2$withRef, _ref2$forwardRef = _ref2.forwardRef, forwardRef = _ref2$forwardRef === void 0 ? false : _ref2$forwardRef, _ref2$context = _ref2.context, context = _ref2$context === void 0 ? _context.ReactReduxContext : _ref2$context, connectOptions = _objectWithoutPropertiesLooseDefault.default(_ref2, _excluded);
     if (renderCountProp !== undefined) throw new Error("renderCountProp is removed. render counting is built into the latest React Dev Tools profiling extension");
     if (withRef) throw new Error('withRef is removed. To access the wrapped instance, use a ref on the connected component');
     var customStoreWarningMessage = "To use a custom Redux store for specific components, create a custom React context with React.createContext(), and pass the context object to React Redux's Provider and specific components like: <Provider context={MyContext}><ConnectedComponent context={MyContext} /></Provider>. You may also pass a {context : MyContext} option to connect";
@@ -35967,9 +36092,7 @@ function connectAdvanced(/*
                 // Distinguish between actual "data" props that were passed to the wrapper component,
                 // and values needed to control behavior (forwarded refs, alternate context instances).
                 // To maintain the wrapperProps object reference, memoize this destructuring.
-                var reactReduxForwardedRef = props.reactReduxForwardedRef, wrapperProps = _objectWithoutPropertiesLooseDefault.default(props, [
-                    "reactReduxForwardedRef"
-                ]);
+                var reactReduxForwardedRef = props.reactReduxForwardedRef, wrapperProps = _objectWithoutPropertiesLooseDefault.default(props, _excluded2);
                 return [
                     props.context,
                     reactReduxForwardedRef,
@@ -36004,7 +36127,13 @@ function connectAdvanced(/*
             var _useMemo2 = _react.useMemo(function() {
                 if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY; // This Subscription's source should match where store came from: props vs. context. A component
                 // connected to the store via props shouldn't use subscription from context, or vice versa.
-                var subscription = new _subscriptionDefault.default(store, didStoreComeFromProps ? null : contextValue.subscription); // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
+                // This Subscription's source should match where store came from: props vs. context. A component
+                // connected to the store via props shouldn't use subscription from context, or vice versa.
+                var subscription = _subscription.createSubscription(store, didStoreComeFromProps ? null : contextValue.subscription); // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
+                // the middle of the notification loop, where `subscription` will then be null. This can
+                // probably be avoided if Subscription's listeners logic is changed to not call listeners
+                // that have been unsubscribed in the  middle of the notification loop.
+                // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
                 // the middle of the notification loop, where `subscription` will then be null. This can
                 // probably be avoided if Subscription's listeners logic is changed to not call listeners
                 // that have been unsubscribed in the  middle of the notification loop.
@@ -36242,6 +36371,13 @@ var _mergeProps = require("./mergeProps");
 var _mergePropsDefault = parcelHelpers.interopDefault(_mergeProps);
 var _selectorFactory = require("./selectorFactory");
 var _selectorFactoryDefault = parcelHelpers.interopDefault(_selectorFactory);
+var _excluded = [
+    "pure",
+    "areStatesEqual",
+    "areOwnPropsEqual",
+    "areStatePropsEqual",
+    "areMergedPropsEqual"
+];
 /*
   connect is a facade over connectAdvanced. It turns its args into a compatible
   selectorFactory, which has the signature:
@@ -36275,13 +36411,7 @@ function createConnect(_temp) {
     return function connect(mapStateToProps, mapDispatchToProps, mergeProps, _ref2) {
         if (_ref2 === void 0) _ref2 = {
         };
-        var _ref3 = _ref2, _ref3$pure = _ref3.pure, pure = _ref3$pure === void 0 ? true : _ref3$pure, _ref3$areStatesEqual = _ref3.areStatesEqual, areStatesEqual = _ref3$areStatesEqual === void 0 ? strictEqual : _ref3$areStatesEqual, _ref3$areOwnPropsEqua = _ref3.areOwnPropsEqual, areOwnPropsEqual = _ref3$areOwnPropsEqua === void 0 ? _shallowEqualDefault.default : _ref3$areOwnPropsEqua, _ref3$areStatePropsEq = _ref3.areStatePropsEqual, areStatePropsEqual = _ref3$areStatePropsEq === void 0 ? _shallowEqualDefault.default : _ref3$areStatePropsEq, _ref3$areMergedPropsE = _ref3.areMergedPropsEqual, areMergedPropsEqual = _ref3$areMergedPropsE === void 0 ? _shallowEqualDefault.default : _ref3$areMergedPropsE, extraOptions = _objectWithoutPropertiesLooseDefault.default(_ref3, [
-            "pure",
-            "areStatesEqual",
-            "areOwnPropsEqual",
-            "areStatePropsEqual",
-            "areMergedPropsEqual"
-        ]);
+        var _ref3 = _ref2, _ref3$pure = _ref3.pure, pure = _ref3$pure === void 0 ? true : _ref3$pure, _ref3$areStatesEqual = _ref3.areStatesEqual, areStatesEqual = _ref3$areStatesEqual === void 0 ? strictEqual : _ref3$areStatesEqual, _ref3$areOwnPropsEqua = _ref3.areOwnPropsEqual, areOwnPropsEqual = _ref3$areOwnPropsEqua === void 0 ? _shallowEqualDefault.default : _ref3$areOwnPropsEqua, _ref3$areStatePropsEq = _ref3.areStatePropsEqual, areStatePropsEqual = _ref3$areStatePropsEq === void 0 ? _shallowEqualDefault.default : _ref3$areStatePropsEq, _ref3$areMergedPropsE = _ref3.areMergedPropsEqual, areMergedPropsEqual = _ref3$areMergedPropsE === void 0 ? _shallowEqualDefault.default : _ref3$areMergedPropsE, extraOptions = _objectWithoutPropertiesLooseDefault.default(_ref3, _excluded);
         var initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps');
         var initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps');
         var initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps');
@@ -36568,6 +36698,11 @@ var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWi
 var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
 var _verifySubselectors = require("./verifySubselectors");
 var _verifySubselectorsDefault = parcelHelpers.interopDefault(_verifySubselectors);
+var _excluded = [
+    "initMapStateToProps",
+    "initMapDispatchToProps",
+    "initMergeProps"
+];
 function impureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch) {
     return function impureFinalPropsSelector(state, ownProps) {
         return mergeProps(mapStateToProps(state, ownProps), mapDispatchToProps(dispatch, ownProps), ownProps);
@@ -36624,11 +36759,7 @@ function pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, merg
     };
 }
 function finalPropsSelectorFactory(dispatch, _ref2) {
-    var initMapStateToProps = _ref2.initMapStateToProps, initMapDispatchToProps = _ref2.initMapDispatchToProps, initMergeProps = _ref2.initMergeProps, options = _objectWithoutPropertiesLooseDefault.default(_ref2, [
-        "initMapStateToProps",
-        "initMapDispatchToProps",
-        "initMergeProps"
-    ]);
+    var initMapStateToProps = _ref2.initMapStateToProps, initMapDispatchToProps = _ref2.initMapDispatchToProps, initMergeProps = _ref2.initMergeProps, options = _objectWithoutPropertiesLooseDefault.default(_ref2, _excluded);
     var mapStateToProps = initMapStateToProps(dispatch, options);
     var mapDispatchToProps = initMapDispatchToProps(dispatch, options);
     var mergeProps = initMergeProps(dispatch, options);
@@ -36750,7 +36881,6 @@ parcelHelpers.export(exports, "useSelector", ()=>useSelector
 var _react = require("react");
 var _useReduxContext = require("./useReduxContext");
 var _subscription = require("../utils/Subscription");
-var _subscriptionDefault = parcelHelpers.interopDefault(_subscription);
 var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
 var _context = require("../components/Context");
 var refEquality = function refEquality1(a, b) {
@@ -36761,7 +36891,7 @@ function useSelectorWithStoreAndSubscription(selector, equalityFn, store, contex
         return s + 1;
     }, 0), forceRender = _useReducer[1];
     var subscription = _react.useMemo(function() {
-        return new _subscriptionDefault.default(store, contextSub);
+        return _subscription.createSubscription(store, contextSub);
     }, [
         store,
         contextSub
@@ -36791,7 +36921,8 @@ function useSelectorWithStoreAndSubscription(selector, equalityFn, store, contex
     _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect(function() {
         function checkForUpdates() {
             try {
-                var newStoreState = store.getState();
+                var newStoreState = store.getState(); // Avoid calling selector multiple times if the store's state has not changed
+                if (newStoreState === latestStoreState.current) return;
                 var _newSelectedState = latestSelector.current(newStoreState);
                 if (equalityFn(_newSelectedState, latestSelectedState.current)) return;
                 latestSelectedState.current = _newSelectedState;
@@ -37561,7 +37692,7 @@ module.exports.default = axios;
 },{"./utils":"hOPY0","./helpers/bind":"4bHkG","./core/Axios":"KVzea","./core/mergeConfig":"8vb7m","./defaults":"g96L2","./cancel/Cancel":"iGO1D","./cancel/CancelToken":"6kJtU","./cancel/isCancel":"6KzET","./helpers/spread":"3fmMu","./helpers/isAxiosError":"1NqDP"}],"hOPY0":[function(require,module,exports) {
 'use strict';
 var bind = require('./helpers/bind');
-/*global toString:true*/ // utils is a library of generic helper functions non-specific to axios
+// utils is a library of generic helper functions non-specific to axios
 var toString = Object.prototype.toString;
 /**
  * Determine if a value is an Array
@@ -37702,7 +37833,7 @@ var toString = Object.prototype.toString;
  * @param {String} str The String to trim
  * @returns {String} The String freed of excess whitespace
  */ function trim(str) {
-    return str.replace(/^\s*/, '').replace(/\s*$/, '');
+    return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g, '');
 }
 /**
  * Determine if we're running in a standard browser environment
@@ -37841,6 +37972,8 @@ var buildURL = require('../helpers/buildURL');
 var InterceptorManager = require('./InterceptorManager');
 var dispatchRequest = require('./dispatchRequest');
 var mergeConfig = require('./mergeConfig');
+var validator = require('../helpers/validator');
+var validators = validator.validators;
 /**
  * Create a new instance of Axios
  *
@@ -37869,19 +38002,53 @@ var mergeConfig = require('./mergeConfig');
     if (config.method) config.method = config.method.toLowerCase();
     else if (this.defaults.method) config.method = this.defaults.method.toLowerCase();
     else config.method = 'get';
-    // Hook up interceptors middleware
-    var chain = [
-        dispatchRequest,
-        undefined
-    ];
-    var promise = Promise.resolve(config);
+    var transitional = config.transitional;
+    if (transitional !== undefined) validator.assertOptions(transitional, {
+        silentJSONParsing: validators.transitional(validators.boolean, '1.0.0'),
+        forcedJSONParsing: validators.transitional(validators.boolean, '1.0.0'),
+        clarifyTimeoutError: validators.transitional(validators.boolean, '1.0.0')
+    }, false);
+    // filter out skipped interceptors
+    var requestInterceptorChain = [];
+    var synchronousRequestInterceptors = true;
     this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
-        chain.unshift(interceptor.fulfilled, interceptor.rejected);
+        if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) return;
+        synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
+        requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
     });
+    var responseInterceptorChain = [];
     this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
-        chain.push(interceptor.fulfilled, interceptor.rejected);
+        responseInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
     });
-    while(chain.length)promise = promise.then(chain.shift(), chain.shift());
+    var promise;
+    if (!synchronousRequestInterceptors) {
+        var chain = [
+            dispatchRequest,
+            undefined
+        ];
+        Array.prototype.unshift.apply(chain, requestInterceptorChain);
+        chain = chain.concat(responseInterceptorChain);
+        promise = Promise.resolve(config);
+        while(chain.length)promise = promise.then(chain.shift(), chain.shift());
+        return promise;
+    }
+    var newConfig = config;
+    while(requestInterceptorChain.length){
+        var onFulfilled = requestInterceptorChain.shift();
+        var onRejected = requestInterceptorChain.shift();
+        try {
+            newConfig = onFulfilled(newConfig);
+        } catch (error) {
+            onRejected(error);
+            break;
+        }
+    }
+    try {
+        promise = dispatchRequest(newConfig);
+    } catch (error) {
+        return Promise.reject(error);
+    }
+    while(responseInterceptorChain.length)promise = promise.then(responseInterceptorChain.shift(), responseInterceptorChain.shift());
     return promise;
 };
 Axios.prototype.getUri = function getUri(config) {
@@ -37921,7 +38088,7 @@ utils.forEach([
 });
 module.exports = Axios;
 
-},{"./../utils":"hOPY0","../helpers/buildURL":"3Jodf","./InterceptorManager":"9kkIC","./dispatchRequest":"dmFav","./mergeConfig":"8vb7m"}],"3Jodf":[function(require,module,exports) {
+},{"./../utils":"hOPY0","../helpers/buildURL":"3Jodf","./InterceptorManager":"9kkIC","./dispatchRequest":"dmFav","./mergeConfig":"8vb7m","../helpers/validator":"4sigL"}],"3Jodf":[function(require,module,exports) {
 'use strict';
 var utils = require('./../utils');
 function encode(val) {
@@ -37975,10 +38142,12 @@ function InterceptorManager() {
  * @param {Function} rejected The function to handle `reject` for a `Promise`
  *
  * @return {Number} An ID used to remove interceptor later
- */ InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+ */ InterceptorManager.prototype.use = function use(fulfilled, rejected, options) {
     this.handlers.push({
         fulfilled: fulfilled,
-        rejected: rejected
+        rejected: rejected,
+        synchronous: options ? options.synchronous : false,
+        runWhen: options ? options.runWhen : null
     });
     return this.handlers.length - 1;
 };
@@ -38025,7 +38194,7 @@ var defaults = require('../defaults');
     config.headers = config.headers || {
     };
     // Transform request data
-    config.data = transformData(config.data, config.headers, config.transformRequest);
+    config.data = transformData.call(config, config.data, config.headers, config.transformRequest);
     // Flatten headers
     config.headers = utils.merge(config.headers.common || {
     }, config.headers[config.method] || {
@@ -38045,13 +38214,13 @@ var defaults = require('../defaults');
     return adapter(config).then(function onAdapterResolution(response) {
         throwIfCancellationRequested(config);
         // Transform response data
-        response.data = transformData(response.data, response.headers, config.transformResponse);
+        response.data = transformData.call(config, response.data, response.headers, config.transformResponse);
         return response;
     }, function onAdapterRejection(reason) {
         if (!isCancel(reason)) {
             throwIfCancellationRequested(config);
             // Transform response data
-            if (reason && reason.response) reason.response.data = transformData(reason.response.data, reason.response.headers, config.transformResponse);
+            if (reason && reason.response) reason.response.data = transformData.call(config, reason.response.data, reason.response.headers, config.transformResponse);
         }
         return Promise.reject(reason);
     });
@@ -38060,6 +38229,7 @@ var defaults = require('../defaults');
 },{"./../utils":"hOPY0","./transformData":"57wgh","../cancel/isCancel":"6KzET","../defaults":"g96L2"}],"57wgh":[function(require,module,exports) {
 'use strict';
 var utils = require('./../utils');
+var defaults = require('./../defaults');
 /**
  * Transform the data for a request or a response
  *
@@ -38068,23 +38238,19 @@ var utils = require('./../utils');
  * @param {Array|Function} fns A single function or Array of functions
  * @returns {*} The resulting transformed data
  */ module.exports = function transformData(data, headers, fns) {
+    var context = this || defaults;
     /*eslint no-param-reassign:0*/ utils.forEach(fns, function transform(fn) {
-        data = fn(data, headers);
+        data = fn.call(context, data, headers);
     });
     return data;
 };
 
-},{"./../utils":"hOPY0"}],"6KzET":[function(require,module,exports) {
-'use strict';
-module.exports = function isCancel(value) {
-    return !!(value && value.__CANCEL__);
-};
-
-},{}],"g96L2":[function(require,module,exports) {
+},{"./../utils":"hOPY0","./../defaults":"g96L2"}],"g96L2":[function(require,module,exports) {
 var process = require("process");
 'use strict';
 var utils = require('./utils');
 var normalizeHeaderName = require('./helpers/normalizeHeaderName');
+var enhanceError = require('./core/enhanceError');
 var DEFAULT_CONTENT_TYPE = {
     'Content-Type': 'application/x-www-form-urlencoded'
 };
@@ -38099,7 +38265,21 @@ function getDefaultAdapter() {
     adapter = require('./adapters/http');
     return adapter;
 }
+function stringifySafely(rawValue, parser, encoder) {
+    if (utils.isString(rawValue)) try {
+        (parser || JSON.parse)(rawValue);
+        return utils.trim(rawValue);
+    } catch (e) {
+        if (e.name !== 'SyntaxError') throw e;
+    }
+    return (encoder || JSON.stringify)(rawValue);
+}
 var defaults = {
+    transitional: {
+        silentJSONParsing: true,
+        forcedJSONParsing: true,
+        clarifyTimeoutError: false
+    },
     adapter: getDefaultAdapter(),
     transformRequest: [
         function transformRequest(data, headers) {
@@ -38111,18 +38291,26 @@ var defaults = {
                 setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
                 return data.toString();
             }
-            if (utils.isObject(data)) {
-                setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
-                return JSON.stringify(data);
+            if (utils.isObject(data) || headers && headers['Content-Type'] === 'application/json') {
+                setContentTypeIfUnset(headers, 'application/json');
+                return stringifySafely(data);
             }
             return data;
         }
     ],
     transformResponse: [
         function transformResponse(data) {
-            /*eslint no-param-reassign:0*/ if (typeof data === 'string') try {
-                data = JSON.parse(data);
+            var transitional = this.transitional;
+            var silentJSONParsing = transitional && transitional.silentJSONParsing;
+            var forcedJSONParsing = transitional && transitional.forcedJSONParsing;
+            var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';
+            if (strictJSONParsing || forcedJSONParsing && utils.isString(data) && data.length) try {
+                return JSON.parse(data);
             } catch (e) {
+                if (strictJSONParsing) {
+                    if (e.name === 'SyntaxError') throw enhanceError(e, this, 'E_JSON_PARSE');
+                    throw e;
+                }
             }
             return data;
         }
@@ -38161,7 +38349,7 @@ utils.forEach([
 });
 module.exports = defaults;
 
-},{"process":"6Upk8","./utils":"hOPY0","./helpers/normalizeHeaderName":"6GUF5","./adapters/xhr":"4uZQD","./adapters/http":"4uZQD"}],"6Upk8":[function(require,module,exports) {
+},{"process":"6Upk8","./utils":"hOPY0","./helpers/normalizeHeaderName":"6GUF5","./core/enhanceError":"3f4N4","./adapters/xhr":"4uZQD","./adapters/http":"4uZQD"}],"6Upk8":[function(require,module,exports) {
 // shim for using process in browser
 var process = module.exports = {
 };
@@ -38322,7 +38510,45 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
     });
 };
 
-},{"../utils":"hOPY0"}],"4uZQD":[function(require,module,exports) {
+},{"../utils":"hOPY0"}],"3f4N4":[function(require,module,exports) {
+'use strict';
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */ module.exports = function enhanceError(error, config, code, request, response) {
+    error.config = config;
+    if (code) error.code = code;
+    error.request = request;
+    error.response = response;
+    error.isAxiosError = true;
+    error.toJSON = function toJSON() {
+        return {
+            // Standard
+            message: this.message,
+            name: this.name,
+            // Microsoft
+            description: this.description,
+            number: this.number,
+            // Mozilla
+            fileName: this.fileName,
+            lineNumber: this.lineNumber,
+            columnNumber: this.columnNumber,
+            stack: this.stack,
+            // Axios
+            config: this.config,
+            code: this.code
+        };
+    };
+    return error;
+};
+
+},{}],"4uZQD":[function(require,module,exports) {
 'use strict';
 var utils = require('./../utils');
 var settle = require('./../core/settle');
@@ -38336,6 +38562,7 @@ module.exports = function xhrAdapter(config) {
     return new Promise(function dispatchXhrRequest(resolve, reject) {
         var requestData = config.data;
         var requestHeaders = config.headers;
+        var responseType = config.responseType;
         if (utils.isFormData(requestData)) delete requestHeaders['Content-Type']; // Let the browser set it
         var request = new XMLHttpRequest();
         // HTTP basic authentication
@@ -38348,17 +38575,11 @@ module.exports = function xhrAdapter(config) {
         request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
         // Set the request timeout in MS
         request.timeout = config.timeout;
-        // Listen for ready state
-        request.onreadystatechange = function handleLoad() {
-            if (!request || request.readyState !== 4) return;
-            // The request errored out and we didn't get a response, this will be
-            // handled by onerror instead
-            // With one exception: request that using file: protocol, most browsers
-            // will return status as 0 even though it's a successful request
-            if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) return;
+        function onloadend() {
+            if (!request) return;
             // Prepare the response
             var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
-            var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+            var responseData = !responseType || responseType === 'text' || responseType === 'json' ? request.responseText : request.response;
             var response = {
                 data: responseData,
                 status: request.status,
@@ -38370,6 +38591,20 @@ module.exports = function xhrAdapter(config) {
             settle(resolve, reject, response);
             // Clean up request
             request = null;
+        }
+        if ('onloadend' in request) // Use onloadend if available
+        request.onloadend = onloadend;
+        else // Listen for ready state to emulate onloadend
+        request.onreadystatechange = function handleLoad() {
+            if (!request || request.readyState !== 4) return;
+            // The request errored out and we didn't get a response, this will be
+            // handled by onerror instead
+            // With one exception: request that using file: protocol, most browsers
+            // will return status as 0 even though it's a successful request
+            if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) return;
+            // readystate handler is calling before onerror or ontimeout handlers,
+            // so we should call onloadend on the next 'tick'
+            setTimeout(onloadend);
         };
         // Handle browser request cancellation (as opposed to a manual cancellation)
         request.onabort = function handleAbort() {
@@ -38390,7 +38625,7 @@ module.exports = function xhrAdapter(config) {
         request.ontimeout = function handleTimeout() {
             var timeoutErrorMessage = 'timeout of ' + config.timeout + 'ms exceeded';
             if (config.timeoutErrorMessage) timeoutErrorMessage = config.timeoutErrorMessage;
-            reject(createError(timeoutErrorMessage, config, 'ECONNABORTED', request));
+            reject(createError(timeoutErrorMessage, config, config.transitional && config.transitional.clarifyTimeoutError ? 'ETIMEDOUT' : 'ECONNABORTED', request));
             // Clean up request
             request = null;
         };
@@ -38412,13 +38647,7 @@ module.exports = function xhrAdapter(config) {
         // Add withCredentials to request if needed
         if (!utils.isUndefined(config.withCredentials)) request.withCredentials = !!config.withCredentials;
         // Add responseType to request if needed
-        if (config.responseType) try {
-            request.responseType = config.responseType;
-        } catch (e) {
-            // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
-            // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
-            if (config.responseType !== 'json') throw e;
-        }
+        if (responseType && responseType !== 'json') request.responseType = config.responseType;
         // Handle progress if needed
         if (typeof config.onDownloadProgress === 'function') request.addEventListener('progress', config.onDownloadProgress);
         // Not all browsers support upload events
@@ -38469,45 +38698,7 @@ var enhanceError = require('./enhanceError');
     return enhanceError(error, config, code, request, response);
 };
 
-},{"./enhanceError":"3f4N4"}],"3f4N4":[function(require,module,exports) {
-'use strict';
-/**
- * Update an Error with the specified config, error code, and response.
- *
- * @param {Error} error The error to update.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The error.
- */ module.exports = function enhanceError(error, config, code, request, response) {
-    error.config = config;
-    if (code) error.code = code;
-    error.request = request;
-    error.response = response;
-    error.isAxiosError = true;
-    error.toJSON = function toJSON() {
-        return {
-            // Standard
-            message: this.message,
-            name: this.name,
-            // Microsoft
-            description: this.description,
-            number: this.number,
-            // Mozilla
-            fileName: this.fileName,
-            lineNumber: this.lineNumber,
-            columnNumber: this.columnNumber,
-            stack: this.stack,
-            // Axios
-            config: this.config,
-            code: this.code
-        };
-    };
-    return error;
-};
-
-},{}],"dRE5q":[function(require,module,exports) {
+},{"./enhanceError":"3f4N4"}],"dRE5q":[function(require,module,exports) {
 'use strict';
 var utils = require('./../utils');
 module.exports = utils.isStandardBrowserEnv() ? // Standard browser envs support document.cookie
@@ -38695,7 +38886,13 @@ module.exports = utils.isStandardBrowserEnv() ? // Standard browser envs have fu
     };
 })();
 
-},{"./../utils":"hOPY0"}],"8vb7m":[function(require,module,exports) {
+},{"./../utils":"hOPY0"}],"6KzET":[function(require,module,exports) {
+'use strict';
+module.exports = function isCancel(value) {
+    return !!(value && value.__CANCEL__);
+};
+
+},{}],"8vb7m":[function(require,module,exports) {
 'use strict';
 var utils = require('../utils');
 /**
@@ -38781,7 +38978,94 @@ var utils = require('../utils');
     return config;
 };
 
-},{"../utils":"hOPY0"}],"iGO1D":[function(require,module,exports) {
+},{"../utils":"hOPY0"}],"4sigL":[function(require,module,exports) {
+'use strict';
+var pkg = require('./../../package.json');
+var validators = {
+};
+// eslint-disable-next-line func-names
+[
+    'object',
+    'boolean',
+    'number',
+    'function',
+    'string',
+    'symbol'
+].forEach(function(type, i) {
+    validators[type] = function validator(thing) {
+        return typeof thing === type || 'a' + (i < 1 ? 'n ' : ' ') + type;
+    };
+});
+var deprecatedWarnings = {
+};
+var currentVerArr = pkg.version.split('.');
+/**
+ * Compare package versions
+ * @param {string} version
+ * @param {string?} thanVersion
+ * @returns {boolean}
+ */ function isOlderVersion(version, thanVersion) {
+    var pkgVersionArr = thanVersion ? thanVersion.split('.') : currentVerArr;
+    var destVer = version.split('.');
+    for(var i = 0; i < 3; i++){
+        if (pkgVersionArr[i] > destVer[i]) return true;
+        else if (pkgVersionArr[i] < destVer[i]) return false;
+    }
+    return false;
+}
+/**
+ * Transitional option validator
+ * @param {function|boolean?} validator
+ * @param {string?} version
+ * @param {string} message
+ * @returns {function}
+ */ validators.transitional = function transitional(validator, version, message) {
+    var isDeprecated = version && isOlderVersion(version);
+    function formatMessage(opt, desc) {
+        return '[Axios v' + pkg.version + '] Transitional option \'' + opt + '\'' + desc + (message ? '. ' + message : '');
+    }
+    // eslint-disable-next-line func-names
+    return function(value, opt, opts) {
+        if (validator === false) throw new Error(formatMessage(opt, ' has been removed in ' + version));
+        if (isDeprecated && !deprecatedWarnings[opt]) {
+            deprecatedWarnings[opt] = true;
+            // eslint-disable-next-line no-console
+            console.warn(formatMessage(opt, ' has been deprecated since v' + version + ' and will be removed in the near future'));
+        }
+        return validator ? validator(value, opt, opts) : true;
+    };
+};
+/**
+ * Assert object's properties type
+ * @param {object} options
+ * @param {object} schema
+ * @param {boolean?} allowUnknown
+ */ function assertOptions(options, schema, allowUnknown) {
+    if (typeof options !== 'object') throw new TypeError('options must be an object');
+    var keys = Object.keys(options);
+    var i = keys.length;
+    while((i--) > 0){
+        var opt = keys[i];
+        var validator = schema[opt];
+        if (validator) {
+            var value = options[opt];
+            var result = value === undefined || validator(value, opt, options);
+            if (result !== true) throw new TypeError('option ' + opt + ' must be ' + result);
+            continue;
+        }
+        if (allowUnknown !== true) throw Error('Unknown option ' + opt);
+    }
+}
+module.exports = {
+    isOlderVersion: isOlderVersion,
+    assertOptions: assertOptions,
+    validators: validators
+};
+
+},{"./../../package.json":"5vay1"}],"5vay1":[function(require,module,exports) {
+module.exports = JSON.parse("{\"name\":\"axios\",\"version\":\"0.21.4\",\"description\":\"Promise based HTTP client for the browser and node.js\",\"main\":\"index.js\",\"scripts\":{\"test\":\"grunt test\",\"start\":\"node ./sandbox/server.js\",\"build\":\"NODE_ENV=production grunt build\",\"preversion\":\"npm test\",\"version\":\"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json\",\"postversion\":\"git push && git push --tags\",\"examples\":\"node ./examples/server.js\",\"coveralls\":\"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js\",\"fix\":\"eslint --fix lib/**/*.js\"},\"repository\":{\"type\":\"git\",\"url\":\"https://github.com/axios/axios.git\"},\"keywords\":[\"xhr\",\"http\",\"ajax\",\"promise\",\"node\"],\"author\":\"Matt Zabriskie\",\"license\":\"MIT\",\"bugs\":{\"url\":\"https://github.com/axios/axios/issues\"},\"homepage\":\"https://axios-http.com\",\"devDependencies\":{\"coveralls\":\"^3.0.0\",\"es6-promise\":\"^4.2.4\",\"grunt\":\"^1.3.0\",\"grunt-banner\":\"^0.6.0\",\"grunt-cli\":\"^1.2.0\",\"grunt-contrib-clean\":\"^1.1.0\",\"grunt-contrib-watch\":\"^1.0.0\",\"grunt-eslint\":\"^23.0.0\",\"grunt-karma\":\"^4.0.0\",\"grunt-mocha-test\":\"^0.13.3\",\"grunt-ts\":\"^6.0.0-beta.19\",\"grunt-webpack\":\"^4.0.2\",\"istanbul-instrumenter-loader\":\"^1.0.0\",\"jasmine-core\":\"^2.4.1\",\"karma\":\"^6.3.2\",\"karma-chrome-launcher\":\"^3.1.0\",\"karma-firefox-launcher\":\"^2.1.0\",\"karma-jasmine\":\"^1.1.1\",\"karma-jasmine-ajax\":\"^0.1.13\",\"karma-safari-launcher\":\"^1.0.0\",\"karma-sauce-launcher\":\"^4.3.6\",\"karma-sinon\":\"^1.0.5\",\"karma-sourcemap-loader\":\"^0.3.8\",\"karma-webpack\":\"^4.0.2\",\"load-grunt-tasks\":\"^3.5.2\",\"minimist\":\"^1.2.0\",\"mocha\":\"^8.2.1\",\"sinon\":\"^4.5.0\",\"terser-webpack-plugin\":\"^4.2.3\",\"typescript\":\"^4.0.5\",\"url-search-params\":\"^0.10.0\",\"webpack\":\"^4.44.2\",\"webpack-dev-server\":\"^3.11.0\"},\"browser\":{\"./lib/adapters/http.js\":\"./lib/adapters/xhr.js\"},\"jsdelivr\":\"dist/axios.min.js\",\"unpkg\":\"dist/axios.min.js\",\"typings\":\"./index.d.ts\",\"dependencies\":{\"follow-redirects\":\"^1.14.0\"},\"bundlesize\":[{\"path\":\"./dist/axios.min.js\",\"threshold\":\"5kB\"}]}");
+
+},{}],"iGO1D":[function(require,module,exports) {
 'use strict';
 /**
  * A `Cancel` is an object that is thrown when an operation is canceled.
@@ -38947,10 +39231,10 @@ var _tinyInvariantDefault = parcelHelpers.interopDefault(_tinyInvariant);
     }
     var _proto = BrowserRouter2.prototype;
     _proto.render = function render() {
-        return _reactDefault.default.createElement(_reactRouter.Router, {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.Router, {
             history: this.history,
             children: this.props.children
-        });
+        }));
     };
     return BrowserRouter2;
 }(_reactDefault.default.Component);
@@ -38979,10 +39263,10 @@ BrowserRouter1.prototype.componentDidMount = function() {
     }
     var _proto = HashRouter2.prototype;
     _proto.render = function render() {
-        return _reactDefault.default.createElement(_reactRouter.Router, {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.Router, {
             history: this.history,
             children: this.props.children
-        });
+        }));
     };
     return HashRouter2;
 }(_reactDefault.default.Component);
@@ -39038,7 +39322,7 @@ var LinkAnchor = forwardRef(function(_ref, forwardedRef) {
     }); // React 15 compat
     if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
     else props.ref = innerRef;
-    /* eslint-disable-next-line jsx-a11y/anchor-has-content */ return _reactDefault.default.createElement("a", props);
+    /* eslint-disable-next-line jsx-a11y/anchor-has-content */ return(/*#__PURE__*/ _reactDefault.default.createElement("a", props));
 });
 LinkAnchor.displayName = "LinkAnchor";
 /**
@@ -39050,7 +39334,7 @@ LinkAnchor.displayName = "LinkAnchor";
         "to",
         "innerRef"
     ]);
-    return _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
+    return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
         !context && _tinyInvariantDefault.default(false, "You should not use <Link> outside a <Router>");
         var history = context.history;
         var location = normalizeToLocation(resolveToLocation(to, context.location), context.location);
@@ -39060,14 +39344,15 @@ LinkAnchor.displayName = "LinkAnchor";
             href: href,
             navigate: function navigate() {
                 var location1 = resolveToLocation(to, context.location);
-                var method = replace ? history.replace : history.push;
+                var isDuplicateNavigation = _history.createPath(context.location) === _history.createPath(normalizeToLocation(location1));
+                var method = replace || isDuplicateNavigation ? history.replace : history.push;
                 method(location1);
             }
         }); // React 15 compat
         if (forwardRefShim !== forwardRef) props.ref = forwardedRef || innerRef;
         else props.innerRef = innerRef;
-        return _reactDefault.default.createElement(component, props);
-    });
+        return(/*#__PURE__*/ _reactDefault.default.createElement(component, props));
+    }));
 });
 var toType = _propTypesDefault.default.oneOfType([
     _propTypesDefault.default.string,
@@ -39117,7 +39402,7 @@ function joinClassnames() {
         "to",
         "innerRef"
     ]);
-    return _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
+    return(/*#__PURE__*/ _reactDefault.default.createElement(_reactRouter.__RouterContext.Consumer, null, function(context) {
         !context && _tinyInvariantDefault.default(false, "You should not use <NavLink> outside a <Router>");
         var currentLocation = locationProp || context.location;
         var toLocation = normalizeToLocation(resolveToLocation(to, currentLocation), currentLocation);
@@ -39130,10 +39415,13 @@ function joinClassnames() {
             strict: strict
         }) : null;
         var isActive = !!(isActiveProp ? isActiveProp(match, currentLocation) : match);
-        var className = isActive ? joinClassnames(classNameProp, activeClassName) : classNameProp;
-        var style = isActive ? _extendsDefault.default({
-        }, styleProp, {
-        }, activeStyle) : styleProp;
+        var className = typeof classNameProp === "function" ? classNameProp(isActive) : classNameProp;
+        var style = typeof styleProp === "function" ? styleProp(isActive) : styleProp;
+        if (isActive) {
+            className = joinClassnames(className, activeClassName);
+            style = _extendsDefault.default({
+            }, style, activeStyle);
+        }
         var props = _extendsDefault.default({
             "aria-current": isActive && ariaCurrent || null,
             className: className,
@@ -39142,8 +39430,8 @@ function joinClassnames() {
         }, rest); // React 15 compat
         if (forwardRefShim$1 !== forwardRef$1) props.ref = forwardedRef || innerRef;
         else props.innerRef = innerRef;
-        return _reactDefault.default.createElement(Link, props);
-    });
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Link, props));
+    }));
 });
 NavLink.displayName = "NavLink";
 var ariaCurrentType = _propTypesDefault.default.oneOf([
@@ -39152,20 +39440,27 @@ var ariaCurrentType = _propTypesDefault.default.oneOf([
     "location",
     "date",
     "time",
-    "true"
+    "true",
+    "false"
 ]);
 NavLink.propTypes = _extendsDefault.default({
 }, Link.propTypes, {
     "aria-current": ariaCurrentType,
     activeClassName: _propTypesDefault.default.string,
     activeStyle: _propTypesDefault.default.object,
-    className: _propTypesDefault.default.string,
+    className: _propTypesDefault.default.oneOfType([
+        _propTypesDefault.default.string,
+        _propTypesDefault.default.func
+    ]),
     exact: _propTypesDefault.default.bool,
     isActive: _propTypesDefault.default.func,
     location: _propTypesDefault.default.object,
     sensitive: _propTypesDefault.default.bool,
     strict: _propTypesDefault.default.bool,
-    style: _propTypesDefault.default.object
+    style: _propTypesDefault.default.oneOfType([
+        _propTypesDefault.default.object,
+        _propTypesDefault.default.func
+    ])
 });
 
 },{"react-router":"l4MNa","@babel/runtime/helpers/esm/inheritsLoose":"eO0be","react":"6TuXu","history":"6R8lq","prop-types":"1tgq3","tiny-warning":"4xDJt","@babel/runtime/helpers/esm/extends":"bKAu6","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"3Rubg","tiny-invariant":"kiE0c","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"l4MNa":[function(require,module,exports) {
@@ -39232,13 +39527,7 @@ var createNamedContext = function createNamedContext1(name) {
     return context;
 };
 var historyContext = /*#__PURE__*/ createNamedContext("Router-History");
-// TODO: Replace with React.createContext once we can assume React 16+
-var createNamedContext$1 = function createNamedContext2(name) {
-    var context = _miniCreateReactContextDefault.default();
-    context.displayName = name;
-    return context;
-};
-var context = /*#__PURE__*/ createNamedContext$1("Router");
+var context = /*#__PURE__*/ createNamedContext("Router");
 /**
  * The public API for putting history on context.
  */ var Router1 = /*#__PURE__*/ function(_React$Component) {
@@ -39280,20 +39569,24 @@ var context = /*#__PURE__*/ createNamedContext$1("Router");
         });
     };
     _proto.componentWillUnmount = function componentWillUnmount() {
-        if (this.unlisten) this.unlisten();
+        if (this.unlisten) {
+            this.unlisten();
+            this._isMounted = false;
+            this._pendingLocation = null;
+        }
     };
     _proto.render = function render() {
-        return _reactDefault.default.createElement(context.Provider, {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(context.Provider, {
             value: {
                 history: this.props.history,
                 location: this.state.location,
                 match: Router2.computeRootMatch(this.state.location.pathname),
                 staticContext: this.props.staticContext
             }
-        }, _reactDefault.default.createElement(historyContext.Provider, {
+        }, /*#__PURE__*/ _reactDefault.default.createElement(historyContext.Provider, {
             children: this.props.children || null,
             value: this.props.history
-        }));
+        })));
     };
     return Router2;
 }(_reactDefault.default.Component);
@@ -39320,10 +39613,10 @@ Router1.prototype.componentDidUpdate = function(prevProps) {
     }
     var _proto = MemoryRouter2.prototype;
     _proto.render = function render() {
-        return _reactDefault.default.createElement(Router1, {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Router1, {
             history: this.history,
             children: this.props.children
-        });
+        }));
     };
     return MemoryRouter2;
 }(_reactDefault.default.Component);
@@ -39361,11 +39654,11 @@ var Lifecycle1 = /*#__PURE__*/ function(_React$Component) {
  * The public API for prompting the user before navigating away from a screen.
  */ function Prompt(_ref) {
     var message = _ref.message, _ref$when = _ref.when, when = _ref$when === void 0 ? true : _ref$when;
-    return _reactDefault.default.createElement(context.Consumer, null, function(context1) {
+    return(/*#__PURE__*/ _reactDefault.default.createElement(context.Consumer, null, function(context1) {
         !context1 && _tinyInvariantDefault.default(false, "You should not use <Prompt> outside a <Router>");
         if (!when || context1.staticContext) return null;
         var method = context1.history.block;
-        return _reactDefault.default.createElement(Lifecycle1, {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Lifecycle1, {
             onMount: function onMount(self) {
                 self.release = method(message);
             },
@@ -39379,8 +39672,8 @@ var Lifecycle1 = /*#__PURE__*/ function(_React$Component) {
                 self.release();
             },
             message: message
-        });
-    });
+        }));
+    }));
 }
 var messageType = _propTypesDefault.default.oneOfType([
     _propTypesDefault.default.func,
@@ -39417,7 +39710,7 @@ function compilePath(path) {
  * The public API for navigating programmatically with a component.
  */ function Redirect(_ref) {
     var computedMatch = _ref.computedMatch, to = _ref.to, _ref$push = _ref.push, push = _ref$push === void 0 ? false : _ref$push;
-    return _reactDefault.default.createElement(context.Consumer, null, function(context1) {
+    return(/*#__PURE__*/ _reactDefault.default.createElement(context.Consumer, null, function(context1) {
         !context1 && _tinyInvariantDefault.default(false, "You should not use <Redirect> outside a <Router>");
         var history = context1.history, staticContext = context1.staticContext;
         var method = push ? history.push : history.replace;
@@ -39430,7 +39723,7 @@ function compilePath(path) {
             method(location);
             return null;
         }
-        return _reactDefault.default.createElement(Lifecycle1, {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Lifecycle1, {
             onMount: function onMount() {
                 method(location);
             },
@@ -39442,8 +39735,8 @@ function compilePath(path) {
                 }))) method(location);
             },
             to: to
-        });
-    });
+        }));
+    }));
 }
 Redirect.propTypes = {
     push: _propTypesDefault.default.bool,
@@ -39530,7 +39823,7 @@ function evalChildrenDev(children, props, path) {
     var _proto = Route2.prototype;
     _proto.render = function render() {
         var _this = this;
-        return _reactDefault.default.createElement(context.Consumer, null, function(context$1) {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(context.Consumer, null, function(context$1) {
             !context$1 && _tinyInvariantDefault.default(false, "You should not use <Route> outside a <Router>");
             var location = _this.props.location || context$1.location;
             var match = _this.props.computedMatch ? _this.props.computedMatch // <Switch> already computed the match for us
@@ -39542,11 +39835,11 @@ function evalChildrenDev(children, props, path) {
             });
             var _this$props = _this.props, children = _this$props.children, component = _this$props.component, render1 = _this$props.render; // Preact uses an empty array as children by
             // default, so use null if that's the case.
-            if (Array.isArray(children) && children.length === 0) children = null;
-            return _reactDefault.default.createElement(context.Provider, {
+            if (Array.isArray(children) && isEmptyChildren(children)) children = null;
+            return(/*#__PURE__*/ _reactDefault.default.createElement(context.Provider, {
                 value: props
-            }, props.match ? children ? typeof children === "function" ? evalChildrenDev(children, props, _this.props.path) : children : component ? _reactDefault.default.createElement(component, props) : render1 ? render1(props) : null : typeof children === "function" ? evalChildrenDev(children, props, _this.props.path) : null);
-        });
+            }, props.match ? children ? typeof children === "function" ? evalChildrenDev(children, props, _this.props.path) : children : component ? /*#__PURE__*/ _reactDefault.default.createElement(component, props) : render1 ? render1(props) : null : typeof children === "function" ? evalChildrenDev(children, props, _this.props.path) : null));
+        }));
     };
     return Route2;
 }(_reactDefault.default.Component);
@@ -39662,11 +39955,11 @@ function noop() {
             listen: this.handleListen,
             block: this.handleBlock
         };
-        return _reactDefault.default.createElement(Router1, _extendsDefault.default({
+        return(/*#__PURE__*/ _reactDefault.default.createElement(Router1, _extendsDefault.default({
         }, rest, {
             history: history,
             staticContext: context1
-        }));
+        })));
     };
     return StaticRouter2;
 }(_reactDefault.default.Component);
@@ -39691,7 +39984,7 @@ StaticRouter1.prototype.componentDidMount = function() {
     var _proto = Switch2.prototype;
     _proto.render = function render() {
         var _this = this;
-        return _reactDefault.default.createElement(context.Consumer, null, function(context1) {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(context.Consumer, null, function(context1) {
             !context1 && _tinyInvariantDefault.default(false, "You should not use <Switch> outside a <Router>");
             var location = _this.props.location || context1.location;
             var element, match; // We use React.Children.forEach instead of React.Children.toArray().find()
@@ -39699,7 +39992,7 @@ StaticRouter1.prototype.componentDidMount = function() {
             // to trigger an unmount/remount for two <Route>s that render the same
             // component at different URLs.
             _reactDefault.default.Children.forEach(_this.props.children, function(child) {
-                if (match == null && _reactDefault.default.isValidElement(child)) {
+                if (match == null && /*#__PURE__*/ _reactDefault.default.isValidElement(child)) {
                     element = child;
                     var path = child.props.path || child.props.from;
                     match = path ? matchPath(location.pathname, _extendsDefault.default({
@@ -39708,11 +40001,11 @@ StaticRouter1.prototype.componentDidMount = function() {
                     })) : context1.match;
                 }
             });
-            return match ? _reactDefault.default.cloneElement(element, {
+            return match ? /*#__PURE__*/ _reactDefault.default.cloneElement(element, {
                 location: location,
                 computedMatch: match
             }) : null;
-        });
+        }));
     };
     return Switch2;
 }(_reactDefault.default.Component);
@@ -39732,13 +40025,13 @@ Switch1.prototype.componentDidUpdate = function(prevProps) {
         var wrappedComponentRef = props.wrappedComponentRef, remainingProps = _objectWithoutPropertiesLooseDefault.default(props, [
             "wrappedComponentRef"
         ]);
-        return _reactDefault.default.createElement(context.Consumer, null, function(context1) {
+        return(/*#__PURE__*/ _reactDefault.default.createElement(context.Consumer, null, function(context1) {
             !context1 && _tinyInvariantDefault.default(false, "You should not use <" + displayName + " /> outside a <Router>");
-            return _reactDefault.default.createElement(Component, _extendsDefault.default({
+            return(/*#__PURE__*/ _reactDefault.default.createElement(Component, _extendsDefault.default({
             }, remainingProps, context1, {
                 ref: wrappedComponentRef
-            }));
-        });
+            })));
+        }));
     };
     C.displayName = displayName;
     C.WrappedComponent = Component;
@@ -41069,7 +41362,7 @@ module.exports.tokensToRegExp = tokensToRegExp;
     return stringToRegexp(path, keys, options);
 }
 
-},{"isarray":"1PYkb"}],"1PYkb":[function(require,module,exports) {
+},{"isarray":"6o9Vr"}],"6o9Vr":[function(require,module,exports) {
 module.exports = Array.isArray || function(arr) {
     return Object.prototype.toString.call(arr) == '[object Array]';
 };
@@ -41854,7 +42147,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","axios":"iYoWk","react-redux":"2L0if","./login-view.scss":"lS4BK","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J","../../../public/logo.jpg":"7SXoH"}],"lS4BK":[function() {},{}],"ikZdr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap":"h2YVd","axios":"iYoWk","react-redux":"2L0if","../../../public/logo.jpg":"7SXoH","./login-view.scss":"lS4BK","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5V79J"}],"lS4BK":[function() {},{}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
