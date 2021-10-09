@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d17fdf07-301b-466d-8cb5-6e9b661cbb85/deploy-status)](https://app.netlify.com/sites/paulinemarg-myflix/deploys)
 
-![myFlix](/myFlix.gif)
+![myFlix](/myflix.mov)
 
 This is the client-side of an application called myFlix built using **React**, based on its existing server-side code (REST API and database) 
 that I have built [myflix-backend](https://github.com/paulinemarg/myFlix-backend.git). The app is hosted on Netlify.[myFlix](https://paulinemarg-myflix.netlify.app)
