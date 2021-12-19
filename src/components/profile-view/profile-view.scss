@@ -9,8 +9,8 @@
 }
 
 .profile-view {
-  padding:30px;
-  border:0.3px solid black;
+  padding: 30px;
+  border: 0.3px solid black;
   box-shadow: 5px 5px 5px black;
   border-radius: 15px;
 }
@@ -21,7 +21,9 @@
 }
 
 .trash {
+  color: red !important;
   animation: blinker 1s linear infinite;
+  cursor: pointer;
 }
 
 @keyframes blinker {
