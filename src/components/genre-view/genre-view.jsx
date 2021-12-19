@@ -8,9 +8,9 @@ export class GenreView extends React.Component {
   render() {
     const { genre } = this.props;
     return (
-      <Container className="mt-5">
+      <Container className="genre">
         <Col>
-          <Row className="text-white">
+          <Row className="genre-title">
             <span className="font-weight-bold">{genre.Name}</span>
           </Row>
           <Row className="text-white">
