@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Redirect, Link } from "react-router-dom";
+import { FiLogOut } from 'react-icons/fi';
 
 import { connect } from 'react-redux';
 import { setMovies } from '../../actions/actions';
@@ -14,9 +15,8 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 
-import { Row, Col, Button, Navbar, Nav, Carousel } from 'react-bootstrap';
+import { Row, Col, Button, Navbar, Nav, Carousel, Container } from 'react-bootstrap';
 
-import logo from '../../../public/logo.jpg';
 import "./main-view.scss";
 
 class MainView extends React.Component {
@@ -153,28 +153,29 @@ class MainView extends React.Component {
 
     return (
       <Router className="mainview-container">
-        <Navbar className="custom-navbar" collapseOnSelect expand="lg" sticky="top">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
-              <Link className="custom-link mx-3" to={`/`}>Movies</Link>
-              <Link className="custom-link mx-3" to={`/directors`}>Directors</Link>
-              <Link className="custom-link mx-3" to={`/genres`}>Genres</Link>
-              <Link className="custom-link mx-3" to={`/users/:username`}>Profile</Link>
-            </Nav>
-            <Button className="logout-button mx-3" variant="outline-light" onClick={() => { this.onLoggedOut(); }}>Logout</Button>
-          </Navbar.Collapse>
+        <Navbar className="navbar" collapseOnSelect expand="lg" variant="dark">
+          <Container>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto">
+                <Link className="custom-link mx-3" to={`/`}>Movies</Link>
+                <Link className="custom-link mx-3" to={`/directors`}>Directors</Link>
+                <Link className="custom-link mx-3" to={`/genres`}>Genres</Link>
+                <Link className="custom-link mx-3" to={`/users/:username`}>Profile</Link>
+              </Nav>
+              <Button className="logout-button" variant="outline-secondary" onClick={() => { this.onLoggedOut(); }}><FiLogOut /></Button>
+            </Navbar.Collapse>
+          </Container>
         </Navbar>
-        <img src={logo} width={20} height={200} className="custom-logo justify-content-center-md-center" />
-        <Carousel className="Carousel-container">
-          <Carousel.Item>
-            <img className="thor" src="https://www.assignmentx.com/wp-content/uploads/2011/03/THOR-12x5-Banner_fin2-online.jpg" />
+        <Carousel fade>
+          <Carousel.Item className="item">
+            <img className="carousel-img" src="http://images6.fanpop.com/image/photos/40000000/The-Revenant-Poster-movie-trailers-40024178-1800-874.jpg" />
           </Carousel.Item>
           <Carousel.Item>
-            <img className="italian-job" src="https://filmmusiccentral.files.wordpress.com/2019/08/0_0_121368_00h_1280x640.jpg" />
+            <img className="carousel-img" src="https://www.scified.com/media/pacificrim_support.jpg" />
           </Carousel.Item>
           <Carousel.Item>
-            <img className="interstellar" src="https://www.joblo.com/wp-content/uploads/2014/10/interstellar-quad-nolan-1.jpg" />
+            <img className="carousel-img" src="https://i.pinimg.com/originals/be/d6/3e/bed63e4fa1a1be8cea48b3c630218778.jpg" />
           </Carousel.Item>
         </Carousel>
         <Row className="main-view justify-content-center">

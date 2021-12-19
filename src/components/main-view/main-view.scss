@@ -2,7 +2,13 @@
 
 .custom-link {
   color: white !important;
+  text-decoration: none !important;
   font-family: 'Arvo', serif;
+}
+
+.custom-link:hover,
+.logout-button:hover {
+  opacity: 0.8;
 }
 
 .custom-logo {
@@ -20,15 +26,19 @@ body {
   font-family: 'Arvo', serif;
 }
 
-.thor, .italian-job, .interstellar {
-  width: 100%;
+.carousel-img {
   height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-.custom-navbar {
-  background-color: black !important;
+.logout-button {
+  color: #fff !important;
 }
 
 .logout-button:hover {
-  color: black !important;
+  color: red !important;
+  background-color: #000 !important;
 }
