@@ -31258,29 +31258,13 @@ textarea.form-control-lg {
 * {
   box-sizing: border-box;
 }
-.movie-view {
-  text-align: center;
-  width: 90%;
-  height: 98vh;
-  margin: auto;
-  padding: 1.5%;
-  border-radius: 10px;
+.text-center {
+  background-color: #000 !important;
+  color: #fff !important;
 }
-.movie-view div {
-  margin-top: 1%;
-}
-.custom-body {
-  float: left;
-  font-size: 18px;
-  color: white;
-}
-.movie-poster img {
-  height: 600px;
-  width: 400px;
-  float: right;
-  box-shadow: 0 0 200px #161616;
-}
-.heart {
+.heartBtn {
+  color: red !important;
+  background-color: #000 !important;
   animation: blinker 1s linear infinite;
 }
 @keyframes blinker {
@@ -31288,19 +31272,14 @@ textarea.form-control-lg {
     opacity: 0;
   }
 }
-.custom-link {
-  color: red !important;
-}
-.main-view {
-  text-align: center;
+.card-container {
+  margin-bottom: 20px;
 }
 
 .card-container:hover {
-  opacity: 0.5;
-}
-
-.card-img {
-  height: 500px;
+  transform: scale(1.05);
+  opacity: 0.8;
+  box-shadow: -1px 10px 29px 0px #eeb53a;
 }
 
 .title-container {
@@ -31308,8 +31287,11 @@ textarea.form-control-lg {
   background-color: black;
   color: white;
   position: absolute;
-  bottom: -5px;
   right: 0;
+}
+
+.card-img {
+  height: 500px;
 }
 
 .card-title {
@@ -31324,8 +31306,8 @@ textarea.form-control-lg {
 .featured {
   display: grid;
   place-items: center;
-  width: 65px;
-  height: 20px;
+  width: 75px;
+  height: 25px;
   background-color: #eeb53a;
   color: white;
   border-radius: 0 5px 5px 0;
@@ -31349,10 +31331,55 @@ textarea.form-control-lg {
   margin-bottom: 7px;
   color: #eeb53a;
 }
+
+@media screen and (max-width: 992px) {
+  .card-img {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+  .card-img {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 760px) {
+  .card-img {
+    justify-content: center;
+  }
+}
 .director-img {
-  height: 250px;
+  height: 300px;
+  width: 200px;
 }
 
+.director-view,
+.label {
+  color: #eeb53a;
+  text-align: center;
+}
+
+.director-container {
+  height: 520px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: -1px 10px 29px 0px #e7e7e7;
+}
+.genre {
+  margin-top: 20px;
+  max-width: 100%;
+  box-shadow: -1px 10px 29px 0px #5c5b5b;
+}
+
+.genre-title {
+  color: #eeb53a;
+  text-align: center;
+  font-size: 22px;
+}
+
+.genre-description {
+  text-align: center;
+  font-size: 18px;
+}
 @charset "UTF-8";
 /*!
  * Bootstrap v5.1.1 (https://getbootstrap.com/)
@@ -41765,7 +41792,9 @@ textarea.form-control-lg {
   height: 300px;
 }
 .trash {
+  color: red !important;
   animation: blinker 1s linear infinite;
+  cursor: pointer;
 }
 @keyframes blinker {
   50% {
@@ -52169,7 +52198,12 @@ textarea.form-control-lg {
 }
 .custom-link {
   color: white !important;
+  text-decoration: none !important;
   font-family: "Arvo", serif;
+}
+.custom-link:hover,
+.logout-button:hover {
+  opacity: 0.8;
 }
 .custom-logo {
   width: 100%;
@@ -52183,15 +52217,19 @@ body {
 .main-view {
   font-family: "Arvo", serif;
 }
-.thor, .italian-job, .interstellar {
-  width: 100%;
+.carousel-img {
   height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-.custom-navbar {
-  background-color: black !important;
+.logout-button {
+  color: #fff !important;
 }
 .logout-button:hover {
-  color: black !important;
+  color: red !important;
+  background-color: #000 !important;
 }
 @charset "UTF-8";
 /*!
