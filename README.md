@@ -4,7 +4,7 @@
 
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/paulinemarg/myFlix-client"> <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/paulinemarg/myFlix-client?color=green"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/paulinemarg/myFlix-client?color=yellow"> <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/paulinemarg/myFlix-client?style=plastic">
 
-![myFlix](/myflix.mp4)
+![myFlix](/myflix.png)
 
 This is the client-side of an application called myFlix built using **React**, based on its existing server-side code (REST API and database)
 that I have built [myflix-backend](https://github.com/paulinemarg/myFlix-backend.git). The app is hosted on Netlify.[myFlix](https://paulinemarg-myflix.netlify.app)
