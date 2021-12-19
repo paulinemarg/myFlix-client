@@ -1,35 +1,17 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+
 * {
   box-sizing: border-box;
 }
 
-.movie-view {
-  text-align: center;
-  width: 90%;
-  height: 98vh;
-  margin: auto;
-  padding: 1.5%;
-  border-radius: 10px;
+.text-center {
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
-.movie-view div {
-  margin-top: 1%;
-}
-
-.custom-body {
-  float: left;
-  font-size: 18px;
-  color: white;
-}
-
-.movie-poster img {
-  height: 600px;
-  width: 400px;
-  float: right;
-  box-shadow: 0 0 200px rgb(22, 22, 22); 
-} 
-
-.heart {
+.heartBtn {
+  color: red !important;
+  background-color: #000 !important;
   animation: blinker 1s linear infinite;
 }
 
@@ -37,8 +19,4 @@
   50% {
     opacity: 0;
   }
-}
-
-.custom-link {
-  color: red !important;
 }

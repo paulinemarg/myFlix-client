@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import { Row, Col, Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
+import { BsFillHeartFill } from 'react-icons/bs';
 import axios from 'axios';
 
 import { Link } from "react-router-dom";
@@ -36,22 +37,27 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Row className="movie-view mt-5 m-auto">
-        <Col md={12} lg={6} className="movie-poster">
-          <img className="w-120" src={movie.ImagePath} />
-        </Col>
-        <Col md={12} lg={6} className="custom-body">
-          <div className="movie-title">
-            <span className="label"></span>
-            <h1 className="value">{movie.Title} - {movie.ReleaseYear}
+      <>
+        <Card className="text-center">
+          <Card.Header>{movie.Title} - {movie.ReleaseYear}</Card.Header>
+          <Card.Body>
+            <Card.Title>
+            </Card.Title>
+            <Card.Subtitle>
+              <Button className="heartBtn" variant="dark" value={movie._id} onClick={() => this.addFavorite(movie)}> <BsFillHeartFill />
+              </Button>
+            </Card.Subtitle>
+            <Card.Text>
+              {movie.Description}
               <br></br>
-              <Button className="heartBtn" variant="outline-light" value={movie._id} onClick={() => this.addFavorite(movie)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="heart" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-              </svg></Button>
-            </h1>
-          </div>
-          <div className="movie-genre">
-            <span className="label"></span>
+              <span className="label">Stars:</span> <br></br>
+              <span className="value"> {movie.Stars}</span>
+            </Card.Text>
+            <img className="w-100" src={movie.ImagePath} />
+          </Card.Body>
+          <Button className="mt-4" variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Card.Footer>
+            <span className="label">Genre:</span>
             {movie.Genre.map((Genre) => (
               <Link key={Genre._id} to={`/genres/${Genre.Name}`}>
                 <Button className="custom-link" variant="link">
@@ -59,12 +65,7 @@ export class MovieView extends React.Component {
                 </Button>
               </Link>
             ))}
-          </div>
-          <div className="movie-description">
-            <span className="label"></span>
-            <span className="value">{movie.Description}</span>
-          </div>
-          <div className="movie-director mt-5">
+            <br></br>
             <span className="label">Directed by:</span>
             {movie.Director.map((Director) => (
               <Link key={Director._id} to={`/directors/${Director.Name}`}>
@@ -73,14 +74,9 @@ export class MovieView extends React.Component {
                 </Button>
               </Link>
             ))}
-          </div>
-          <div className="movie-stars">
-            <span className="label">Stars:</span> <br></br>
-            <span className="value"> {movie.Stars}</span>
-          </div>
-          <Button className="mt-4" variant="dark" onClick={() => { onBackClick(null); }}>Back</Button>
-        </Col>
-      </Row>
+          </Card.Footer>
+        </Card >
+      </>
     );
   }
 }
