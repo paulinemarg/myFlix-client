@@ -7,7 +7,7 @@
 ![myFlix](/myflix.png)
 
 This is the client-side of an application called myFlix built using **React**, based on its existing server-side code (REST API and database)
-that I have built [myflix-backend](https://github.com/paulinemarg/myFlix-backend.git). The app is hosted on Netlify.[myFlix](https://paulinemarg-myflix.netlify.app)
+that I have built [myflix-backend](https://github.com/paulinemarg/myFlix-backend.git). The app is hosted on [Netlify](https://paulinemarg-myflix.netlify.app)
 
 ## Technologies
 
